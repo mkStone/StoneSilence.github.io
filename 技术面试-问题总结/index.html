@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('@Stone请输入密码') !== ''){
+                alert('密码错误！请联系管理员，QQ:993166015');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2.ico?v=5.1.3">
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Stone,博客,孙磊,java中" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="面试问题(技术总结)什么是SOA 分布式123456789集群：就是很多的服务器来实现一种功能，例如mysql，很多的服务器都安装mysql负载均衡：就是用来调节的，比方说有很多的用户都在访问读取数据，可是读取a服务器的mysql多，而读取别的服务器的mysql就少，负载均衡把访问a的用户转给b一部分，防止a由于访问量过大造成宕机什么的。分布式：一个系统把不同的服务分开来部署，用户模块，bbs论坛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stone的博客">
+<meta property="og:url" content="http://www.1314sl.com/技术面试-问题总结/index.html">
+<meta property="og:site_name" content="Stone的博客">
+<meta property="og:description" content="面试问题(技术总结)什么是SOA 分布式123456789集群：就是很多的服务器来实现一种功能，例如mysql，很多的服务器都安装mysql负载均衡：就是用来调节的，比方说有很多的用户都在访问读取数据，可是读取a服务器的mysql多，而读取别的服务器的mysql就少，负载均衡把访问a的用户转给b一部分，防止a由于访问量过大造成宕机什么的。分布式：一个系统把不同的服务分开来部署，用户模块，bbs论坛">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-26T06:56:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stone的博客">
+<meta name="twitter:description" content="面试问题(技术总结)什么是SOA 分布式123456789集群：就是很多的服务器来实现一种功能，例如mysql，很多的服务器都安装mysql负载均衡：就是用来调节的，比方说有很多的用户都在访问读取数据，可是读取a服务器的mysql多，而读取别的服务器的mysql就少，负载均衡把访问a的用户转给b一部分，防止a由于访问量过大造成宕机什么的。分布式：一个系统把不同的服务分开来部署，用户模块，bbs论坛">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.1314sl.com/技术面试-问题总结/"/>
+
+
+
+
+
+  <title> | Stone的博客</title>
+  <!-- 百度链接提交 -->
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d891bbc3d22524f891376cd2a476b7cd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+	
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Stone的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            HOME
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tag"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+		<embed wmode="transparent" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.swf" quality="high" bgcolor="#ffffff" width="160" height="70" name="honehoneclock" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.1314sl.com/技术面试-问题总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Stone">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oypem0qjb.bkt.clouddn.com/Stone/1509767069668.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Stone的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-10T22:08:14+08:00">
+                2018-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,741
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="面试问题-技术总结"><a href="#面试问题-技术总结" class="headerlink" title="面试问题(技术总结)"></a>面试问题(技术总结)</h1><h3 id="什么是SOA-分布式"><a href="#什么是SOA-分布式" class="headerlink" title="什么是SOA 分布式"></a>什么是SOA 分布式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">集群：就是很多的服务器来实现一种功能，例如mysql，很多的服务器都安装mysql</div><div class="line"></div><div class="line">负载均衡：就是用来调节的，比方说有很多的用户都在访问读取数据，可是读取a服务器的mysql多，而读取别的服务器的mysql就少，负载均衡把访问a的用户转给b一部分，防止a由于访问量过大造成宕机什么的。</div><div class="line"></div><div class="line">分布式：一个系统把不同的服务分开来部署，用户模块，bbs论坛模块，内容模块，支付模块。对服务的访问量很大的时候，单台服务器已经满足不了需求，就把服务分散到几台甚至几十台几百天电脑上</div><div class="line"></div><div class="line">好处：每个模块只负责自己的事情和请求压力，开发人员只负责自己的东西</div><div class="line"></div><div class="line">分布式应用开发简单的说，是指将用户界面、控制台服务、数据库管理三个层次部署在不同的位置上。其中用户界面是客户端实现的功能，控制台服务是一个专门的服务器，数据管理是在一个专门的数据库服务器上实现的。</div></pre></td></tr></table></figure>
+<p> 自我理解:<br>     对项目的客户(用户界面),数据存储(操作数据(服务)),对数据库的操作(数据层) 分离开来,并且可以进行高效的敏捷开发.<br>    分布式,可以对各个模块进行加强(服务器添加(集群处理)),把调用次数比较多的服务,多加服务器,哪些很少使用的服务,可以对它进行一个降低.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">### hibernate和mybatis的区别</div><div class="line">- hibernate 是对SQL进行了高度的封装,它有自己的HQL语句</div><div class="line">- mybatis保留了对数据库灵活的操作,需要自己写sql语句</div><div class="line">- 他们都是ORM对象映射(数据查询出来以后都是存在pojo类中),使用方法都是大同小异.</div><div class="line">### hibernate的多个参数如何传递?怎么转换?</div><div class="line">- 自己理解 :</div><div class="line">  - 数组传递,对HQL的语句进行拼接,in()里面的条件通过循环来判断.</div><div class="line">- 百度理解:</div><div class="line">  - 集合(List),session.createSQLQuery(sql).setParameterList(&quot;userIdList&quot;, userIdList).list(); </div><div class="line">  - 创建一个查询对象,并且,直接吧集合传进去即可.(setParameterList)</div><div class="line">### SpringMVC和struts2 的区别</div><div class="line">``` </div><div class="line">	SpringMVC和struts2区别</div><div class="line">		实现不同</div><div class="line">			SpringMVC是通过Servlet来实现的</div><div class="line">			Struts2是通过拦截器来实现的</div><div class="line">		Json的转换方式不同</div><div class="line">			Spring MVC是自动转为json</div><div class="line">			Struts2是通过插件来转</div><div class="line">		数据传输不同</div><div class="line">			SpringMVC是通过参数来传递的</div><div class="line">			Struts2是通过值栈来传递的,而值栈是个比较庞大的东西</div><div class="line">		控制器实例不同</div><div class="line">			SpringMVC是基于方法来实现的</div><div class="line">			Struts2是基于对象来实现的</div><div class="line">			SpringMVC从理论上来讲是比Struts2快的</div></pre></td></tr></table></figure></p>
+<h3 id="四大域对象"><a href="#四大域对象" class="headerlink" title="四大域对象"></a>四大域对象</h3><ul>
+<li><p>ServletContext<br> 生命周期：当WEB应用被加载进容器创建代表整个WEB应用的ServletContext对象，当服务器关闭或WEB应用被移除时，ServletContext对象跟着被销毁。</p>
+<p> 作用范围：整个WEB应用。</p>
+<p> 在不同Servlet之间转发、读取资源文件</p>
+</li>
+<li>Request域<br>1.生命周期：在Service方法调用前由服务器创建，传入service发那个发。整个请求结束，request生命结束。<br>2.作用范围：整个请求链（请求转发也存在）<br>3.作用：在整个请求链中共享数据，经常用到：在servlet中处理好的数据交给JSP显示，此时参数就可以放在Request域中。</li>
+<li>Session域<br> 1.生命周期：在第一次调用request.getSession()方法时，服务器会检查是否已经有对应的session，如果没有就在内存中创建一个session并返回。当一段时间内session没有被使用（默认为30分钟），则服务器会销毁该session。如果服务器非正常关闭，没有到期的session也会跟着销毁。如果调用session提供的invalidate()，可以立即销毁session。<br> 2.作用范围：一次会话。</li>
+<li>PageContext域<br>1.生命周期：当对JSP的请求开始，当相应结束时销毁。<br>2.作用范围：整个JSP页面，是四大作用域中最小的一个。<br>3.作用：获取其他八大隐式对象，可以认为是一个入口对象。<pre><code>`获取所有域中的数据`。
+`跳转到其他资源`。
+</code></pre><h3 id="Spring-参数如何传递"><a href="#Spring-参数如何传递" class="headerlink" title="Spring 参数如何传递"></a>Spring 参数如何传递</h3></li>
+<li>直接把表单的参数写在Controller相应的方法的形参中，适用于get方式提交，不适用于post方式提交。</li>
+<li>通过HttpServletRequest接收，post方式和get方式都可以。</li>
+<li>通过一个bean来接收,post方式和get方式都可以。(也叫模型驱动)</li>
+<li>通过@PathVariable获取路径中的参数</li>
+<li>使用@ModelAttribute注解获取POST请求的FORM表单数据</li>
+<li>用注解@RequestParam绑定请求参数到方法入参</li>
+</ul>
+<h3 id="Spring的特征"><a href="#Spring的特征" class="headerlink" title="Spring的特征"></a>Spring的特征</h3><ul>
+<li><p>aop(面向切面编程):</p>
+<ul>
+<li>软件系统分为两个部分：核心关注点和横切关注点<ul>
+<li>业务处理的主要流程是核心关注点</li>
+<li>与之关系不大的部分是横切关注点</li>
+</ul>
+</li>
+<li><p>AOP核心概念</p>
+<p>横切关注点<br>切面（aspect）<br>连接点（joinpoint）<br>切入点（pointcut）<br>通知（advice）<br>目标对象<br>织入（weave）<br>引入（introduction）</p>
+</li>
+</ul>
+</li>
+<li><p>ioc(控制反转):</p>
+<ul>
+<li><p>IOC是一种思想,是一个重要的面向对象编程的体现之一</p>
+</li>
+<li><p>它是把创建和查找依赖对象的控制器交给了容器,有容器进行注入组合对象,所以对象与对象之间是,低耦合的,便于测试,而且也使得整个体系架构变得更灵活</p>
+</li>
+<li>就是对象找依赖并注入,而不是对象自己主动去找</li>
+</ul>
+</li>
+<li><p>IOC依赖注入</p>
+<ul>
+<li>在控制反转中获取资源的过程叫做依赖注入<br>-注入有2种,一种是通过xml配置进行构造注入<br>-还有一种是通过setter注入,就是通过对象的set方法进行注入.</li>
+<li>一般都是在Spring配置文件中,配置bean ,然后交给Spring自动注入,我们拿到对象就可以直接使用.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Spring-AOP-动态代理的实现"><a href="#Spring-AOP-动态代理的实现" class="headerlink" title="Spring AOP (动态代理的实现)"></a>Spring AOP (动态代理的实现)</h3><h3 id="Spring-MVC执行流程"><a href="#Spring-MVC执行流程" class="headerlink" title="Spring MVC执行流程"></a>Spring MVC执行流程</h3><ul>
+<li>自己理解:<ul>
+<li>客户请求–&gt;前端控制器–&gt;前端控制器找到HandlerAdapter–&gt;HandlerAdapter(处理数据)—&gt;返回视图–&gt;然后渲染视图–&gt;最后返回视图给客户<h3 id="Struts2的执行流程"><a href="#Struts2的执行流程" class="headerlink" title="Struts2的执行流程"></a>Struts2的执行流程</h3></li>
+</ul>
+</li>
+</ul>
+<h3 id="Hibernate的执行流程"><a href="#Hibernate的执行流程" class="headerlink" title="Hibernate的执行流程"></a>Hibernate的执行流程</h3><h3 id="mybatis的执行流程"><a href="#mybatis的执行流程" class="headerlink" title="mybatis的执行流程"></a>mybatis的执行流程</h3><h3 id="ElasticSearch-搭建"><a href="#ElasticSearch-搭建" class="headerlink" title="ElasticSearch 搭建"></a>ElasticSearch 搭建</h3><h3 id="ElasticSearch怎么建立索引"><a href="#ElasticSearch怎么建立索引" class="headerlink" title="ElasticSearch怎么建立索引"></a>ElasticSearch怎么建立索引</h3><h3 id="ElasticSearch-怎么使用"><a href="#ElasticSearch-怎么使用" class="headerlink" title="ElasticSearch 怎么使用"></a>ElasticSearch 怎么使用</h3><h3 id="solr-搭建"><a href="#solr-搭建" class="headerlink" title="solr 搭建"></a>solr 搭建</h3><h3 id="solr-怎么建立索引"><a href="#solr-怎么建立索引" class="headerlink" title="solr 怎么建立索引"></a>solr 怎么建立索引</h3><h3 id="solr-怎么使用"><a href="#solr-怎么使用" class="headerlink" title="solr 怎么使用"></a>solr 怎么使用</h3><h3 id="ActiveMQ-使用"><a href="#ActiveMQ-使用" class="headerlink" title="ActiveMQ 使用"></a>ActiveMQ 使用</h3><p>消费者:<br>生产者:</p>
+<h3 id="Dobbo"><a href="#Dobbo" class="headerlink" title="Dobbo"></a>Dobbo</h3><h3 id="WebService"><a href="#WebService" class="headerlink" title="WebService"></a>WebService</h3><h3 id="String-amp-amp-StringBuffer-的区别-在什么时候使用"><a href="#String-amp-amp-StringBuffer-的区别-在什么时候使用" class="headerlink" title="String &amp;&amp; StringBuffer 的区别,在什么时候使用."></a>String &amp;&amp; StringBuffer 的区别,在什么时候使用.</h3><h3 id="Nginx-负载均衡搭建"><a href="#Nginx-负载均衡搭建" class="headerlink" title="Nginx 负载均衡搭建"></a>Nginx 负载均衡搭建</h3><h3 id="Redis的搭建-集群"><a href="#Redis的搭建-集群" class="headerlink" title="Redis的搭建(集群)"></a>Redis的搭建(集群)</h3><h3 id="Redis-中的5种数据类型"><a href="#Redis-中的5种数据类型" class="headerlink" title="Redis 中的5种数据类型"></a>Redis 中的5种数据类型</h3><p>String：key-value（做缓存）<br>Hash：key-fields-values（做缓存）<br>SortedSet（zset）：有顺序，不能重复</p>
+<p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/python爬虫入门/" rel="next" title="python爬虫入门">
+                <i class="fa fa-chevron-left"></i> python爬虫入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="uyan_frame"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://oypem0qjb.bkt.clouddn.com/Stone/1509767069668.jpg"
+                alt="Stone" />
+            
+              <p class="site-author-name" itemprop="name">Stone</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/e4d1564c4cab" target="_blank" title="简     书">
+                    
+                      <i class="fa fa-fw fa-grav"></i>简     书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/1004533413" target="_blank" title="微     博">
+                    
+                      <i class="fa fa-fw fa-rss-square"></i>微     博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://user.qzone.qq.com/993166015" target="_blank" title="QQ空间">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>QQ空间</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面试问题-技术总结"><span class="nav-number">1.</span> <span class="nav-text">面试问题(技术总结)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是SOA-分布式"><span class="nav-number">1.0.1.</span> <span class="nav-text">什么是SOA 分布式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四大域对象"><span class="nav-number">1.0.2.</span> <span class="nav-text">四大域对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-参数如何传递"><span class="nav-number">1.0.3.</span> <span class="nav-text">Spring 参数如何传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring的特征"><span class="nav-number">1.0.4.</span> <span class="nav-text">Spring的特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-AOP-动态代理的实现"><span class="nav-number">1.0.5.</span> <span class="nav-text">Spring AOP (动态代理的实现)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC执行流程"><span class="nav-number">1.0.6.</span> <span class="nav-text">Spring MVC执行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Struts2的执行流程"><span class="nav-number">1.0.7.</span> <span class="nav-text">Struts2的执行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hibernate的执行流程"><span class="nav-number">1.0.8.</span> <span class="nav-text">Hibernate的执行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis的执行流程"><span class="nav-number">1.0.9.</span> <span class="nav-text">mybatis的执行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ElasticSearch-搭建"><span class="nav-number">1.0.10.</span> <span class="nav-text">ElasticSearch 搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ElasticSearch怎么建立索引"><span class="nav-number">1.0.11.</span> <span class="nav-text">ElasticSearch怎么建立索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ElasticSearch-怎么使用"><span class="nav-number">1.0.12.</span> <span class="nav-text">ElasticSearch 怎么使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solr-搭建"><span class="nav-number">1.0.13.</span> <span class="nav-text">solr 搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solr-怎么建立索引"><span class="nav-number">1.0.14.</span> <span class="nav-text">solr 怎么建立索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solr-怎么使用"><span class="nav-number">1.0.15.</span> <span class="nav-text">solr 怎么使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ActiveMQ-使用"><span class="nav-number">1.0.16.</span> <span class="nav-text">ActiveMQ 使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dobbo"><span class="nav-number">1.0.17.</span> <span class="nav-text">Dobbo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebService"><span class="nav-number">1.0.18.</span> <span class="nav-text">WebService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-amp-amp-StringBuffer-的区别-在什么时候使用"><span class="nav-number">1.0.19.</span> <span class="nav-text">String && StringBuffer 的区别,在什么时候使用.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx-负载均衡搭建"><span class="nav-number">1.0.20.</span> <span class="nav-text">Nginx 负载均衡搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis的搭建-集群"><span class="nav-number">1.0.21.</span> <span class="nav-text">Redis的搭建(集群)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-中的5种数据类型"><span class="nav-number">1.0.22.</span> <span class="nav-text">Redis 中的5种数据类型</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Stone</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" href="http://www.1314sl.com" target="_blank" >孙磊</a>  强力驱动</div>
+
+-->
+
+
+  <span class="post-meta-divider">
+		<font color="##00FF">我从来不担心我不够努力, 我只是怕优秀得人比我还努力!</font><br/>
+  </span>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_pv">访问量 3<span id="busuanzi_value_site_pv"></span>次 </span>
+</div>
+<script src="https://s22.cnzz.com/z_stat.php?id=1267521888&web_id=1267521888" language="JavaScript"></script>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2148072"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>

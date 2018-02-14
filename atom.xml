@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Stone的博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.1314sl.com/"/>
+  <updated>2018-01-26T06:56:02.000Z</updated>
+  <id>http://www.1314sl.com/</id>
+  
+  <author>
+    <name>Stone</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://www.1314sl.com/%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95-%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.1314sl.com/技术面试-问题总结/</id>
+    <published>2018-02-10T14:08:14.000Z</published>
+    <updated>2018-01-26T06:56:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="面试问题-技术总结"><a href="#面试问题-技术总结" class="headerlink" title="面试问题(技术总结)"></a>面试问题(技术总结)</h1><h3 id="什么是SOA-分布式"><a href="#什么是SOA-分布式" class="headerlink" title="什么是SOA 分布式"></a>什么是SOA 分布式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">集群：就是很多的服务器来实现一种功能，例如mysql，很多的服务器都安装mysql</div><div class="line"></div><div class="line">负载均衡：就是用来调节的，比方说有很多的用户都在访问读取数据，可是读取a服务器的mysql多，而读取别的服务器的mysql就少，负载均衡把访问a的用户转给b一部分，防止a由于访问量过大造成宕机什么的。</div><div class="line"></div><div class="line">分布式：一个系统把不同的服务分开来部署，用户模块，bbs论坛模块，内容模块，支付模块。对服务的访问量很大的时候，单台服务器已经满足不了需求，就把服务分散到几台甚至几十台几百天电脑上</div><div class="line"></div><div class="line">好处：每个模块只负责自己的事情和请求压力，开发人员只负责自己的东西</div><div class="line"></div><div class="line">分布式应用开发简单的说，是指将用户界面、控制台服务、数据库管理三个层次部署在不同的位置上。其中用户界面是客户端实现的功能，控制台服务是一个专门的服务器，数据管理是在一个专门的数据库服务器上实现的。</div></pre></td></tr></table></figure><p> 自我理解:<br>     对项目的客户(用户界面),数据存储(操作数据(服务)),对数据库的操作(数据层) 分离开来,并且可以进行高效的敏捷开发.<br>    分布式,可以对各个模块进行加强(服务器添加(集群处理)),把调用次数比较多的服务,多加服务器,哪些很少使用的服务,可以对它进行一个降低.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">### hibernate和mybatis的区别</div><div class="line">- hibernate 是对SQL进行了高度的封装,它有自己的HQL语句</div><div class="line">- mybatis保留了对数据库灵活的操作,需要自己写sql语句</div><div class="line">- 他们都是ORM对象映射(数据查询出来以后都是存在pojo类中),使用方法都是大同小异.</div><div class="line">### hibernate的多个参数如何传递?怎么转换?</div><div class="line">- 自己理解 :</div><div class="line">  - 数组传递,对HQL的语句进行拼接,in()里面的条件通过循环来判断.</div><div class="line">- 百度理解:</div><div class="line">  - 集合(List),session.createSQLQuery(sql).setParameterList(&quot;userIdList&quot;, userIdList).list(); </div><div class="line">  - 创建一个查询对象,并且,直接吧集合传进去即可.(setParameterList)</div><div class="line">### SpringMVC和struts2 的区别</div><div class="line">``` </div><div class="line">SpringMVC和struts2区别</div><div class="line">实现不同</div><div class="line">SpringMVC是通过Servlet来实现的</div><div class="line">Struts2是通过拦截器来实现的</div><div class="line">Json的转换方式不同</div><div class="line">Spring MVC是自动转为json</div><div class="line">Struts2是通过插件来转</div><div class="line">数据传输不同</div><div class="line">SpringMVC是通过参数来传递的</div><div class="line">Struts2是通过值栈来传递的,而值栈是个比较庞大的东西</div><div class="line">控制器实例不同</div><div class="line">SpringMVC是基于方法来实现的</div><div class="line">Struts2是基于对象来实现的</div><div class="line">SpringMVC从理论上来讲是比Struts2快的</div></pre></td></tr></table></figure></p><h3 id="四大域对象"><a href="#四大域对象" class="headerlink" title="四大域对象"></a>四大域对象</h3><ul><li><p>ServletContext<br> 生命周期：当WEB应用被加载进容器创建代表整个WEB应用的ServletContext对象，当服务器关闭或WEB应用被移除时，ServletContext对象跟着被销毁。</p><p> 作用范围：整个WEB应用。</p><p> 在不同Servlet之间转发、读取资源文件</p></li><li>Request域<br>1.生命周期：在Service方法调用前由服务器创建，传入service发那个发。整个请求结束，request生命结束。<br>2.作用范围：整个请求链（请求转发也存在）<br>3.作用：在整个请求链中共享数据，经常用到：在servlet中处理好的数据交给JSP显示，此时参数就可以放在Request域中。</li><li>Session域<br> 1.生命周期：在第一次调用request.getSession()方法时，服务器会检查是否已经有对应的session，如果没有就在内存中创建一个session并返回。当一段时间内session没有被使用（默认为30分钟），则服务器会销毁该session。如果服务器非正常关闭，没有到期的session也会跟着销毁。如果调用session提供的invalidate()，可以立即销毁session。<br> 2.作用范围：一次会话。</li><li>PageContext域<br>1.生命周期：当对JSP的请求开始，当相应结束时销毁。<br>2.作用范围：整个JSP页面，是四大作用域中最小的一个。<br>3.作用：获取其他八大隐式对象，可以认为是一个入口对象。<pre><code>`获取所有域中的数据`。`跳转到其他资源`。</code></pre><h3 id="Spring-参数如何传递"><a href="#Spring-参数如何传递" class="headerlink" title="Spring 参数如何传递"></a>Spring 参数如何传递</h3></li><li>直接把表单的参数写在Controller相应的方法的形参中，适用于get方式提交，不适用于post方式提交。</li><li>通过HttpServletRequest接收，post方式和get方式都可以。</li><li>通过一个bean来接收,post方式和get方式都可以。(也叫模型驱动)</li><li>通过@PathVariable获取路径中的参数</li><li>使用@ModelAttribute注解获取POST请求的FORM表单数据</li><li>用注解@RequestParam绑定请求参数到方法入参</li></ul><h3 id="Spring的特征"><a href="#Spring的特征" class="headerlink" title="Spring的特征"></a>Spring的特征</h3><ul><li><p>aop(面向切面编程):</p><ul><li>软件系统分为两个部分：核心关注点和横切关注点<ul><li>业务处理的主要流程是核心关注点</li><li>与之关系不大的部分是横切关注点</li></ul></li><li><p>AOP核心概念</p><p>横切关注点<br>切面（aspect）<br>连接点（joinpoint）<br>切入点（pointcut）<br>通知（advice）<br>目标对象<br>织入（weave）<br>引入（introduction）</p></li></ul></li><li><p>ioc(控制反转):</p><ul><li><p>IOC是一种思想,是一个重要的面向对象编程的体现之一</p></li><li><p>它是把创建和查找依赖对象的控制器交给了容器,有容器进行注入组合对象,所以对象与对象之间是,低耦合的,便于测试,而且也使得整个体系架构变得更灵活</p></li><li>就是对象找依赖并注入,而不是对象自己主动去找</li></ul></li><li><p>IOC依赖注入</p><ul><li>在控制反转中获取资源的过程叫做依赖注入<br>-注入有2种,一种是通过xml配置进行构造注入<br>-还有一种是通过setter注入,就是通过对象的set方法进行注入.</li><li>一般都是在Spring配置文件中,配置bean ,然后交给Spring自动注入,我们拿到对象就可以直接使用.</li></ul></li></ul><h3 id="Spring-AOP-动态代理的实现"><a href="#Spring-AOP-动态代理的实现" class="headerlink" title="Spring AOP (动态代理的实现)"></a>Spring AOP (动态代理的实现)</h3><h3 id="Spring-MVC执行流程"><a href="#Spring-MVC执行流程" class="headerlink" title="Spring MVC执行流程"></a>Spring MVC执行流程</h3><ul><li>自己理解:<ul><li>客户请求–&gt;前端控制器–&gt;前端控制器找到HandlerAdapter–&gt;HandlerAdapter(处理数据)—&gt;返回视图–&gt;然后渲染视图–&gt;最后返回视图给客户<h3 id="Struts2的执行流程"><a href="#Struts2的执行流程" class="headerlink" title="Struts2的执行流程"></a>Struts2的执行流程</h3></li></ul></li></ul><h3 id="Hibernate的执行流程"><a href="#Hibernate的执行流程" class="headerlink" title="Hibernate的执行流程"></a>Hibernate的执行流程</h3><h3 id="mybatis的执行流程"><a href="#mybatis的执行流程" class="headerlink" title="mybatis的执行流程"></a>mybatis的执行流程</h3><h3 id="ElasticSearch-搭建"><a href="#ElasticSearch-搭建" class="headerlink" title="ElasticSearch 搭建"></a>ElasticSearch 搭建</h3><h3 id="ElasticSearch怎么建立索引"><a href="#ElasticSearch怎么建立索引" class="headerlink" title="ElasticSearch怎么建立索引"></a>ElasticSearch怎么建立索引</h3><h3 id="ElasticSearch-怎么使用"><a href="#ElasticSearch-怎么使用" class="headerlink" title="ElasticSearch 怎么使用"></a>ElasticSearch 怎么使用</h3><h3 id="solr-搭建"><a href="#solr-搭建" class="headerlink" title="solr 搭建"></a>solr 搭建</h3><h3 id="solr-怎么建立索引"><a href="#solr-怎么建立索引" class="headerlink" title="solr 怎么建立索引"></a>solr 怎么建立索引</h3><h3 id="solr-怎么使用"><a href="#solr-怎么使用" class="headerlink" title="solr 怎么使用"></a>solr 怎么使用</h3><h3 id="ActiveMQ-使用"><a href="#ActiveMQ-使用" class="headerlink" title="ActiveMQ 使用"></a>ActiveMQ 使用</h3><p>消费者:<br>生产者:</p><h3 id="Dobbo"><a href="#Dobbo" class="headerlink" title="Dobbo"></a>Dobbo</h3><h3 id="WebService"><a href="#WebService" class="headerlink" title="WebService"></a>WebService</h3><h3 id="String-amp-amp-StringBuffer-的区别-在什么时候使用"><a href="#String-amp-amp-StringBuffer-的区别-在什么时候使用" class="headerlink" title="String &amp;&amp; StringBuffer 的区别,在什么时候使用."></a>String &amp;&amp; StringBuffer 的区别,在什么时候使用.</h3><h3 id="Nginx-负载均衡搭建"><a href="#Nginx-负载均衡搭建" class="headerlink" title="Nginx 负载均衡搭建"></a>Nginx 负载均衡搭建</h3><h3 id="Redis的搭建-集群"><a href="#Redis的搭建-集群" class="headerlink" title="Redis的搭建(集群)"></a>Redis的搭建(集群)</h3><h3 id="Redis-中的5种数据类型"><a href="#Redis-中的5种数据类型" class="headerlink" title="Redis 中的5种数据类型"></a>Redis 中的5种数据类型</h3><p>String：key-value（做缓存）<br>Hash：key-fields-values（做缓存）<br>SortedSet（zset）：有顺序，不能重复</p><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;面试问题-技术总结&quot;&gt;&lt;a href=&quot;#面试问题-技术总结&quot; class=&quot;headerlink&quot; title=&quot;面试问题(技术总结)&quot;&gt;&lt;/a&gt;面试问题(技术总结)&lt;/h1&gt;&lt;h3 id=&quot;什么是SOA-分布式&quot;&gt;&lt;a href=&quot;#什么是SOA-分布式&quot; c
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python爬虫入门</title>
+    <link href="http://www.1314sl.com/python%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8/"/>
+    <id>http://www.1314sl.com/python爬虫入门/</id>
+    <published>2018-02-09T11:23:46.000Z</published>
+    <updated>2018-02-09T12:07:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p>今天,来介绍一下听起来很牛,其实的确牛的爬虫技术!(当然,我现在也学习者,分享一下学习经验)</p><p>废话不多少,先直接看效果</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1518176193209.jpg" alt="500条数据URL"></p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1518176400116.jpg" alt="爬虫获取数据"></p><a id="more"></a><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1518176486356.jpg" alt="获取数据"></p><h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下:"></a>代码如下:</h3><h4 id="文章URL爬取"><a href="#文章URL爬取" class="headerlink" title="文章URL爬取"></a>文章URL爬取</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span>  pymysql</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">waitSql</span><span class="params">(bookName,bookLink)</span>:</span></div><div class="line">    bookName = str(bookName).replace(<span class="string">' '</span>, <span class="string">''</span>)</div><div class="line">    bookName = str(bookName).replace(<span class="string">'\r\n'</span>, <span class="string">''</span>)</div><div class="line">    db=pymysql.connect(host=<span class="string">'localhost'</span>, port=<span class="number">3306</span>, user=<span class="string">'root'</span>, passwd=<span class="string">'123'</span>, db=<span class="string">'booklog'</span>,charset=<span class="string">'utf8'</span>)</div><div class="line">    <span class="comment"># 使用 cursor() 方法创建一个游标对象 cursor</span></div><div class="line">    cursor = db.cursor()</div><div class="line">    <span class="comment"># 使用 execute()  方法执行 SQL 查询</span></div><div class="line">    sql=<span class="string">"insert into csdnbook(bookName,linkURL) VALUE('"</span>+str(bookName)+<span class="string">"','"</span>+str(bookLink)+<span class="string">"')"</span></div><div class="line">    print(sql)</div><div class="line">    cursor.execute(sql)</div><div class="line">    db.commit()</div><div class="line">    cursor.close()</div><div class="line">    db.close()</div><div class="line">    <span class="keyword">return</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDiv</span><span class="params">(html)</span>:</span></div><div class="line">    <span class="comment">####截取主要的文章链接块#</span></div><div class="line">    divClass = html.find(<span class="string">"article_list"</span>)</div><div class="line">    divClassEnd=html.find(<span class="string">"papelist"</span>,divClass)<span class="number">-38</span></div><div class="line">    <span class="comment">############截取到文章的块以后,把HTML内容重新赋值#############</span></div><div class="line">    html=html[divClass:divClassEnd]</div><div class="line">    <span class="comment">#print(html)</span></div><div class="line">    <span class="keyword">return</span> html</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Listadd</span><span class="params">(html)</span>:</span></div><div class="line">    <span class="comment">#进行html解析(首页解析)</span></div><div class="line">    html=str(html)</div><div class="line">    <span class="comment">#获取文章块的文章(唯一标识哦!)</span></div><div class="line">    divClass=html.find(<span class="string">"article_list"</span>)</div><div class="line">    <span class="comment">#############循环查找每一个DIV(article_title)标签和 A标签里名的名字######################</span></div><div class="line">    <span class="keyword">while</span>(divClass&gt;= <span class="number">-1</span>):</div><div class="line">        <span class="comment">##寻找主要的链接和文章名字的块,而不是全部链接</span></div><div class="line">        divClass=html.find(<span class="string">'link_title'</span>,divClass)</div><div class="line">        <span class="comment">#寻找链接文章名字</span></div><div class="line">        <span class="keyword">if</span> (divClass &lt;= <span class="number">-1</span>):</div><div class="line">            <span class="keyword">break</span></div><div class="line">        a_=html.find(<span class="string">'&lt;a href="'</span>,divClass)+<span class="number">9</span></div><div class="line">        _a=html.find(<span class="string">'&gt;'</span>,a_)<span class="number">-1</span></div><div class="line">       <span class="comment">#文章名字从链接获取完成以后开始  &lt;a&gt;名字&lt;/a&gt; 所以此刻的位置就是 _a +2的位置</span></div><div class="line">                        <span class="comment"># name_=html.find('',_a)+3</span></div><div class="line">                        <span class="comment"># _name=html.find('&lt;/a',name_)</span></div><div class="line"></div><div class="line">        bookName_start = html.find(<span class="string">''</span>, _a) + <span class="number">2</span></div><div class="line">        bookName_end = html.find(<span class="string">'&lt;'</span>, bookName_start)</div><div class="line">        <span class="comment">#链接的的截取</span></div><div class="line">        url=html[a_:_a]</div><div class="line">        <span class="comment">#截取文章名字</span></div><div class="line">        Bookname=html[bookName_start:bookName_end]</div><div class="line">        divClass = html.find(<span class="string">"&lt;a href="</span>,bookName_end)</div><div class="line">        url=<span class="string">"http://blog.csdn.net"</span>+url</div><div class="line">        <span class="comment">#linkList.append(url)</span></div><div class="line">        <span class="comment">###########查看获取到的数据###########</span></div><div class="line">        <span class="comment">##去掉所有空格</span></div><div class="line">        Bookname.replace(<span class="string">" "</span>,<span class="string">""</span>)</div><div class="line">        url.replace(<span class="string">" "</span>, <span class="string">""</span>)</div><div class="line">        <span class="comment">#print(Bookname+url)</span></div><div class="line">        <span class="comment">############添加到数据库###########</span></div><div class="line">        waitSql(Bookname,url)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fileWarit</span><span class="params">(html,i)</span>:</span></div><div class="line">    file=open(str(i)+<span class="string">'.html'</span>,<span class="string">'w+'</span>,encoding=<span class="string">'utf-8'</span>)</div><div class="line">    file.write(html)</div><div class="line">    file.close()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#################请求循环,到25页,(分页请求)###############</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">geturl</span><span class="params">()</span>:</span></div><div class="line">    i=<span class="number">1</span></div><div class="line">    <span class="keyword">while</span>(i&lt;=<span class="number">25</span>):</div><div class="line">        url=<span class="string">"http://blog.csdn.net/u010870518/article/list/"</span>+str(i)</div><div class="line">        print(url)</div><div class="line">        <span class="comment"># # 写入User Agent信息</span></div><div class="line">        <span class="comment"># head = &#123;&#125;</span></div><div class="line">        <span class="comment"># head[</span></div><div class="line">        <span class="comment">#     'User-Agent'] = 'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19'</span></div><div class="line">        <span class="comment"># 创建Request对象</span></div><div class="line">        web_date = requests.put(url)</div><div class="line">        <span class="comment">#把网页格式内容转换为 utf-8</span></div><div class="line">        web_date.encoding = <span class="string">'utf-8'</span></div><div class="line">        <span class="comment">#####获取网页内容##</span></div><div class="line">        html = web_date.text</div><div class="line">        <span class="comment">#fileWarit(html,i)</span></div><div class="line">        <span class="comment">####使用 getDiv 方法把 html中文章的DIV 截取到#</span></div><div class="line">        html = getDiv(html)</div><div class="line">        <span class="comment">#########链接添加到数据库##########</span></div><div class="line">        Listadd(html)</div><div class="line">        i=i+<span class="number">1</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">###############################程序执行#####################</span></div><div class="line">geturl()</div><div class="line"><span class="comment">#fileWarit(html)</span></div></pre></td></tr></table></figure><h4 id="文章爬取"><a href="#文章爬取" class="headerlink" title="文章爬取:"></a>文章爬取:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span>  pymysql</div><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span>  time</div><div class="line"></div><div class="line"><span class="comment">#######用来存储,数据库查询到的数据,名字,链接,时间###############</span></div><div class="line">NameList=[]</div><div class="line">urlList=[]</div><div class="line">datetime=[]</div><div class="line"></div><div class="line"><span class="comment">#获取数据中,由CSDN 爬取到的文章 名字和链接</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">waitSql</span><span class="params">()</span>:</span></div><div class="line">    db=pymysql.connect(host=<span class="string">'localhost'</span>, port=<span class="number">3306</span>, user=<span class="string">'root'</span>, passwd=<span class="string">'admin'</span>, db=<span class="string">'booklog'</span>,charset=<span class="string">'utf8'</span>)</div><div class="line">    <span class="comment"># 使用 cursor() 方法创建一个游标对象 cursor</span></div><div class="line">    cursor = db.cursor()</div><div class="line">    <span class="comment"># 使用 execute()  方法执行 SQL 查询</span></div><div class="line">    sql=<span class="string">"select bookName,linkURL,dateTime from csdnbook"</span></div><div class="line">    cursor.execute(sql)</div><div class="line">    <span class="comment">#获取数据库查询的数据</span></div><div class="line">    results=cursor.fetchall()</div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> results:</div><div class="line">        NameList.append(row[<span class="number">0</span>])</div><div class="line">        urlList.append(row[<span class="number">1</span>])</div><div class="line">        datetime.append(row[<span class="number">2</span>])</div><div class="line">    <span class="comment">#数组存数据</span></div><div class="line"></div><div class="line">    cursor.close()</div><div class="line">    db.close()</div><div class="line">    <span class="keyword">return</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDiv</span><span class="params">(html)</span>:</span></div><div class="line">    <span class="comment">####截取主要的文章链接块#</span></div><div class="line">    divClass = html.find(<span class="string">'&lt;div class="markdown_views"&gt;'</span>)</div><div class="line">    divClassEnd=html.find(<span class="string">'&lt;script  type="text/javascript"&gt;'</span>,divClass)</div><div class="line">    <span class="comment">############截取到文章的块以后,把HTML内容重新赋值#############</span></div><div class="line">    html=html[divClass:divClassEnd]</div><div class="line">    <span class="comment">#print(html)</span></div><div class="line">    <span class="keyword">return</span> html</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDiv2</span><span class="params">(html)</span>:</span></div><div class="line">    <span class="comment">####截取主要的文章链接块#</span></div><div class="line">    divClass = html.find(<span class="string">'&lt;div id="article_content"'</span>)</div><div class="line">    divClassEnd=html.find(<span class="string">'&lt;div class="bdsharebuttonbox tracking-ad'</span>,divClass)<span class="number">-45</span></div><div class="line">    <span class="comment">############截取到文章的块以后,把HTML内容重新赋值#############</span></div><div class="line">    html=html[divClass:divClassEnd]</div><div class="line">    <span class="comment">#print(html)</span></div><div class="line">    <span class="keyword">return</span> html</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">waitr</span><span class="params">(name, html, time)</span>:</span></div><div class="line">    <span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line">    <span class="comment">#################各种字符串 转换异常#######################</span></div><div class="line">    name = str(name).replace(<span class="string">'/'</span>, <span class="string">''</span>)</div><div class="line">    name = str(name).replace(<span class="string">'\x08'</span>,<span class="string">''</span>)</div><div class="line">    name = str(name).replace(<span class="string">':'</span>, <span class="string">''</span>)</div><div class="line">    name=str(name).replace(<span class="string">'：'</span>, <span class="string">''</span>)</div><div class="line"></div><div class="line">    print(name)</div><div class="line">    file = open(name + <span class="string">'.md'</span>,<span class="string">'w+'</span>,encoding=<span class="string">'utf8'</span>)</div><div class="line">    head = <span class="string">"---\ntitle: "</span> + name + <span class="string">"\ndate: "</span> + str(</div><div class="line">        time) + <span class="string">"\ntags: [javaEE]\nkeywords: "</span> + name + <span class="string">",Stone的博客\n---\n#####  [@作者博客](http://www.1314sl.com)\n"</span></div><div class="line">    Text = head + html</div><div class="line">    print(Text)</div><div class="line">    file.flush()</div><div class="line">    file.write(Text)</div><div class="line">    file.close()</div><div class="line">    <span class="keyword">return</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    waitSql()</div><div class="line">    print(len(urlList))</div><div class="line">    print(len(NameList))</div><div class="line">    print(len(datetime))</div><div class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> range(len(urlList)):</div><div class="line">        web_data = requests.put(urlList[index])</div><div class="line">        web_data.encoding=<span class="string">'utf-8'</span></div><div class="line">        html=getDiv(web_data.text)</div><div class="line">        <span class="keyword">if</span>(html==<span class="string">""</span>):</div><div class="line">            print(<span class="string">"###################245章以后的文章###########################"</span>)</div><div class="line">            <span class="comment">#######在245章以后文件的样式不同了###所以重新解析一下######</span></div><div class="line">            html=getDiv2(web_data.text)</div><div class="line">            <span class="keyword">if</span>(html==<span class="string">""</span>):</div><div class="line">                print(NameList[index]+<span class="string">"###############%%%%%%%%失败了%%%%%%%%%%%%%%%%################"</span>)</div><div class="line">                <span class="keyword">continue</span></div><div class="line">        waitr(NameList[index],html,datetime[index])</div></pre></td></tr></table></figure><p>好啦,装逼的时间过了,来介绍一下:</p><p>这次爬虫的目标是,中国最大的技术博客CSDN,不知道的朋友可以去百度.</p><p>首先,打开CSDN网站(<a href="http://blog.csdn.net/u010870518/article/list/1" target="_blank" rel="external">http://blog.csdn.net/u010870518/article/list/1</a>)</p><p>第二部就是解析这个网站的HTML结构.</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1518177071778.jpg" alt=""></p><p>HTML主要的代码块,就在这个DIV里,我们打开这个DIV,再去寻找自己想要的数据.</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1518177160041.jpg" alt=""></p><p>点开以后发现,里面每一个DIV块,对于每一个文章入口.<br>那就好操作了,现在已经找到它网站的有序结构就好爬取了.</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1518177359637.jpg" alt=""></p><p>它所有的URL都存在这个规定格式的a标签里,我们获取页面,然后利用pythone的来查找这个DIV块里的DIV块,然后获取a标签就可以了,</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1518177487930.jpg" alt=""></p><p>将获取到的链接,保存到数据库,即可.</p><p>然后再从数据库里获取就可以了!</p><p>这里就先介绍到这里.源码已经放在上面,喜欢的朋友可以试试.</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/Python%E7%88%AC%E8%99%AB.png" alt="enter description here" title="Python爬虫"></p><p><code>本博客,所有的文章,仅供学习,请勿商业利用!本人概不负责!</code></p><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;今天,来介绍一下听起来很牛,其实的确牛的爬虫技术!(当然,我现在也学习者,分享一下学习经验)&lt;/p&gt;
+&lt;p&gt;废话不多少,先直接看效果&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oypem0qjb.bkt.clouddn.com/Stone/1518176193209.jpg&quot; alt=&quot;500条数据URL&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oypem0qjb.bkt.clouddn.com/Stone/1518176400116.jpg&quot; alt=&quot;爬虫获取数据&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux安装mysql</title>
+    <link href="http://www.1314sl.com/Linux%E5%AE%89%E8%A3%85mysql/"/>
+    <id>http://www.1314sl.com/Linux安装mysql/</id>
+    <published>2018-02-09T11:03:48.000Z</published>
+    <updated>2018-02-09T11:09:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><h3 id="安装mysql-Centos"><a href="#安装mysql-Centos" class="headerlink" title="安装mysql Centos"></a>安装mysql Centos</h3><ol><li><p>下载mysql文件（5.6 linux-通用版）</p></li><li><p>上传到linux系统中</p></li><li><p>创建mysql的文件夹 </p></li><li><p>解压到文件夹 (/usr/local/develop/mysql)</p></li><li><p>安装mysql的服务端</p><ul><li>rpm -ivh MySQL-server-5.6.22-l.e16.i686.rpm</li></ul></li><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">如果上面的行不通，报错，就下载 mysql -glib.tar 版本的</div><div class="line">安装步骤：</div><div class="line">shell&gt; groupadd mysql  # 添加用户组 mysql</div><div class="line">shell&gt; useradd -r -g mysql mysql   # 添加用户mysql 并加入到 mysql 组中</div><div class="line">shell&gt; cd /usr/local  # 进入用户本地目录</div><div class="line">shell&gt; tar zxvf /path/to/mysql-VERSION-OS.tar.gz # 解压mysql压缩包(已解压略过)</div><div class="line">shell&gt; ln -s full-path-to-mysql-VERSION-OS mysql # 创建软连接 mysql 指定mysql**目录</div><div class="line">shell&gt; cd mysql  # 进入mysql目录 ，或软连接目录</div><div class="line">shell&gt; chown -R mysql .    # 更改当前目录下的所有文件的所属用户为 mysql</div><div class="line">shell&gt; chgrp -R mysql .    # 更改当前目录下的所有文件的所属组为 mysql</div><div class="line">shell&gt; scripts/mysql_install_db --user=mysql  # 开始安装(调用安装脚本)</div><div class="line">shell&gt; chown -R root .</div><div class="line">shell&gt; chown -R mysql data</div><div class="line"># Next command is optional</div><div class="line">shell&gt; cp support-files/my-medium.cnf /etc/my.cnf</div><div class="line">shell&gt; bin/mysqld_safe --user=mysql &amp;</div><div class="line"># Next command is optional</div><div class="line">shell&gt; cp support-files/mysql.server /etc/init.d/mysql.server</div></pre></td></tr></table></figure></li></ol><p>Ubuntu 16.0 卸载 Mysql </p><a id="more"></a><ul><li>sudo apt purge mysql-*</li><li>sudo rm -rf /etc/mysql/ /var/lib/mysql</li><li>sudo apt autoremove</li><li>sudo apt autoreclean</li></ul><h3 id="Ubuntu16-0-安装Mysql"><a href="#Ubuntu16-0-安装Mysql" class="headerlink" title="Ubuntu16.0 安装Mysql"></a>Ubuntu16.0 安装Mysql</h3><h4 id="安装5-6"><a href="#安装5-6" class="headerlink" title="安装5.6"></a>安装5.6</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install software-properties-common</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository &apos;deb http://archive.ubuntu.com/ubuntu trusty universe&apos;</div><div class="line">sudo apt-get update</div><div class="line">sudo apt install mysql-server-5.6</div><div class="line">sudo apt install mysql-client-5.6</div><div class="line"></div><div class="line">查看服务：</div><div class="line">cd /etc/init.d/</div><div class="line">ls</div><div class="line">如果有mysql 就表示安装成功</div><div class="line"></div><div class="line">启动mysql：</div><div class="line">service mysql start</div><div class="line">停止mysql：</div><div class="line">service 服务名 start或stop</div><div class="line"></div><div class="line">&lt;!--如果你的mysql,不能远程连接,那你就开启远程服务!--&gt;</div><div class="line">开启远程服务：</div><div class="line">登录mysql:</div><div class="line">grant all privileges on *.* to &apos;root&apos; @&apos;%&apos; identified by &apos;admin&apos;;</div><div class="line">flush privileges;</div><div class="line">•设置Linux的防火墙:</div><div class="line">/sbin/iptables -I INPUT -p tcp --dport 3306 -j ACCEPT</div><div class="line">/etc/rc.d/init.d/iptables save</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Errors were encountered while processing:</div><div class="line"></div><div class="line">sudo -s</div><div class="line">cd /var/cache/debconf</div><div class="line">rm *.dat</div><div class="line">apt-get update &amp;&amp; apt-get upgrade</div></pre></td></tr></table></figure><h4 id="安装mysql-5-7-最新"><a href="#安装mysql-5-7-最新" class="headerlink" title="安装mysql 5.7 (最新)"></a>安装mysql 5.7 (最新)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install mysql-server</div><div class="line">系统将提示您在安装过程中创建 root 密码。选择一个安全的密码，并确保你记住它，因为你以后需要它。接下来，我们将完成 MySQL 的配置。</div><div class="line">sudo mysql_secure_installation</div><div class="line">systemctl status mysql.service</div><div class="line">您将看到类似于以下内容的输出：</div><div class="line"></div><div class="line"></div><div class="line">mysql.service - MySQL Community Server</div><div class="line">Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: en Active: active (running) since Wed 2016-11-23 21:21:25 UTC; 30min ago Main PID: 3754 (mysqld) Tasks: 28 Memory: 142.3M CPU: 1.994s CGroup: /system.slice/mysql.service └─3754 /usr/sbin/mysqld</div><div class="line">如果MySQL没有运行，您可以启动它：</div><div class="line"></div><div class="line">sudo systemctl mysql start</div><div class="line">如果额外的检查，您可以尝试使用该 mysqladmin 工具连接到数据库，该工具是允许您运行管理命令的客户端。例如，该命令表示以 root（-u root）方式连接到 MySQL ，提示输入密码（-p）并返回版本。</div><div class="line"></div><div class="line">mysqladmin -p -u root version</div><div class="line">你应该看到类似的输出：</div><div class="line"></div><div class="line"></div><div class="line">mysqladmin  Ver 8.42 Distrib 5.7.16, for Linux on x86_64</div><div class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</div><div class="line">Oracle is a registered trademark of Oracle Corporation and/or its affiliates. Other names may be trademarks of their respective owners.</div><div class="line">Server version 5.7.16-0ubuntu0.16.04.1 Protocol version 10 Connection Localhost via UNIX socket UNIX socket /var/run/mysqld/mysqld.sock Uptime: 30 min 54 sec</div><div class="line">Threads: 1 Questions: 12 Slow queries: 0 Opens: 115 Flush tables: 1 Open tables: 34 Queries per second avg: 0.006</div><div class="line">这意味着MySQL正在运行。</div><div class="line"></div><div class="line">结论</div><div class="line"></div><div class="line">现在您的服务器上已经安装了一个可以使用的 MySQL 5.7 了。</div></pre></td></tr></table></figure><h4 id="设置mysql-数据库-不区分大小写-项目上线"><a href="#设置mysql-数据库-不区分大小写-项目上线" class="headerlink" title="设置mysql 数据库 不区分大小写(项目上线)"></a>设置mysql 数据库 不区分大小写(项目上线)</h4><p>在my.cnf文件中: [mysqld] 后面<br>添加:</p><p>lower_case_table_names=1</p><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;h3 id=&quot;安装mysql-Centos&quot;&gt;&lt;a href=&quot;#安装mysql-Centos&quot; class=&quot;headerlink&quot; title=&quot;安装mysql Centos&quot;&gt;&lt;/a&gt;安装mysql Centos&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;下载mysql文件（5.6 linux-通用版）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;上传到linux系统中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;创建mysql的文件夹 &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;解压到文件夹 (/usr/local/develop/mysql)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装mysql的服务端&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;rpm -ivh MySQL-server-5.6.22-l.e16.i686.rpm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;如果上面的行不通，报错，就下载 mysql -glib.tar 版本的&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;安装步骤：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; groupadd mysql  # 添加用户组 mysql&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; useradd -r -g mysql mysql   # 添加用户mysql 并加入到 mysql 组中&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; cd /usr/local  # 进入用户本地目录&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; tar zxvf /path/to/mysql-VERSION-OS.tar.gz # 解压mysql压缩包(已解压略过)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; ln -s full-path-to-mysql-VERSION-OS mysql # 创建软连接 mysql 指定mysql**目录&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; cd mysql  # 进入mysql目录 ，或软连接目录&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; chown -R mysql .    # 更改当前目录下的所有文件的所属用户为 mysql&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; chgrp -R mysql .    # 更改当前目录下的所有文件的所属组为 mysql&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; scripts/mysql_install_db --user=mysql  # 开始安装(调用安装脚本)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; chown -R root .&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; chown -R mysql data&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Next command is optional&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; cp support-files/my-medium.cnf /etc/my.cnf&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; bin/mysqld_safe --user=mysql &amp;amp;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Next command is optional&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;shell&amp;gt; cp support-files/mysql.server /etc/init.d/mysql.server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ubuntu 16.0 卸载 Mysql &lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux环境搭建_Ubuntu</title>
+    <link href="http://www.1314sl.com/Linux%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Ubuntu/"/>
+    <id>http://www.1314sl.com/Linux环境搭建-Ubuntu/</id>
+    <published>2018-01-29T09:32:11.000Z</published>
+    <updated>2018-01-29T09:47:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><h3 id="Ubuntu-16-0-安装jdk"><a href="#Ubuntu-16-0-安装jdk" class="headerlink" title="Ubuntu 16.0 安装jdk"></a>Ubuntu 16.0 安装jdk</h3><h4 id="最快速-最装逼的安装方式"><a href="#最快速-最装逼的安装方式" class="headerlink" title="最快速,最装逼的安装方式"></a>最快速,最装逼的安装方式</h4><p>直接在命令行里,运行,以下命令即可!</p><p> <code>sudo apt-get install default-jre</code><br> <a id="more"></a><br> 手动安装JDK</p><ol><li><p>下载jdk <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">下载地址</a></p></li><li><p>利用工具上传到Ubuntu系统,我这里使用的是 <a href="https://filezilla-project.org/" target="_blank" rel="external">FileZilla</a></p></li><li><p>解压到目录(/usr/local/java)</p></li><li><p>设置环境变量,修改配置文件   sudo vim ~/.bashrc<br>在最后面加上：<br>#set oracle jdk environment<br>export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_60  ## 要换成自己解压的jdk 目录<br>export JRE_HOME=${JAVA_HOME}/jre<br>export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib<br>export PATH=${JAVA_HOME}/bin:$PATH  </p><ol><li>然后刷新配置文件 sudo vim ~/.bashrc</li><li>设置系统默认jdk 版本  第二个路径是你jdk安装的路径<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">下面是终端运行的代码,机制,第二个是你JDK解压的路径</div><div class="line"></div><div class="line">  sudo update-alternatives --install /usr/bin/java java /usr/local/jdk1.7.0_80/bin/java 300  </div><div class="line"> sudo update-alternatives --install /usr/bin/javac javac /usr/local/jdk1.7.0_80/bin/javac 300  </div><div class="line"> sudo update-alternatives --install /usr/bin/jar jar /usr/local/jdk1.7.0_80/bin/jar 300   </div><div class="line"> sudo update-alternatives --install /usr/bin/javah javah /usr/local/jdk1.7.0_80/bin/javah 300   </div><div class="line"> sudo update-alternatives --install /usr/bin/javap javap /usr/local/jdk1.7.0_80/bin/javap 300</div></pre></td></tr></table></figure></li></ol></li><li><p>sudo update-alternatives –config java  (查看系统中有几个jdk，并且选择用哪个)</p></li></ol><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1517218933960.jpg" alt=""></p><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;h3 id=&quot;Ubuntu-16-0-安装jdk&quot;&gt;&lt;a href=&quot;#Ubuntu-16-0-安装jdk&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu 16.0 安装jdk&quot;&gt;&lt;/a&gt;Ubuntu 16.0 安装jdk&lt;/h3&gt;&lt;h4 id=&quot;最快速-最装逼的安装方式&quot;&gt;&lt;a href=&quot;#最快速-最装逼的安装方式&quot; class=&quot;headerlink&quot; title=&quot;最快速,最装逼的安装方式&quot;&gt;&lt;/a&gt;最快速,最装逼的安装方式&lt;/h4&gt;&lt;p&gt;直接在命令行里,运行,以下命令即可!&lt;/p&gt;
+&lt;p&gt; &lt;code&gt;sudo apt-get install default-jre&lt;/code&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux环境搭建(JDK)</title>
+    <link href="http://www.1314sl.com/Linux%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-JDK/"/>
+    <id>http://www.1314sl.com/Linux环境搭建-JDK/</id>
+    <published>2018-01-29T09:30:04.000Z</published>
+    <updated>2018-01-29T09:51:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><h3 id="Centos-装jdk"><a href="#Centos-装jdk" class="headerlink" title="Centos 装jdk"></a>Centos 装jdk</h3><ol><li><p>下载JDK 我这边下载的是 jdk1.7 </p></li><li><p>上传文件（FileZilla)</p></li><li><p>在 /usr/local/ 目录下 创建 java   <code>mdkir /usr/local/java</code></p><a id="more"></a></li><li><p>安装 依赖</p><ul><li><code>yum install glibc.i686</code></li></ul></li><li><p>解压 <code>jdk的包</code></p><ul><li>tar -zxvf  jdk_xxx.tar.gz -C /usr/local/java</li></ul></li><li><p>配置 JDK的环境</p><ul><li><p>vim /etc/profile  （修改配置文件，跟Windows中环境变量一样）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> set java environment</div><div class="line">JAVA_HOME=   JDK安装路径 (/usr/local/java/jdk1.7.0_80)</div><div class="line"></div><div class="line">CLASSPATH=.:$JAVA_HOME/lib.tools.jar</div><div class="line"></div><div class="line">PATH=$JAVA_HOME/bin:$PATH</div><div class="line"></div><div class="line">export JAVA_HOME CLASSPATH PATH</div></pre></td></tr></table></figure></li><li><p>重新加载配置文件 </p><ul><li>source /etc/profile</li></ul></li></ul></li></ol><p>注意: 每个Linux的安装方式不同!同样的我也同时更新了Ubuntu16.0的jdk安装环境.</p><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;h3 id=&quot;Centos-装jdk&quot;&gt;&lt;a href=&quot;#Centos-装jdk&quot; class=&quot;headerlink&quot; title=&quot;Centos 装jdk&quot;&gt;&lt;/a&gt;Centos 装jdk&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;下载JDK 我这边下载的是 jdk1.7 &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;上传文件（FileZilla)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在 /usr/local/ 目录下 创建 java   &lt;code&gt;mdkir /usr/local/java&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>就业感言</title>
+    <link href="http://www.1314sl.com/%E5%B0%B1%E4%B8%9A%E6%84%9F%E8%A8%80/"/>
+    <id>http://www.1314sl.com/就业感言/</id>
+    <published>2018-01-26T06:52:31.000Z</published>
+    <updated>2018-01-26T06:58:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1516948182165.jpg" alt=""><br>杭州，这座城市，有多太的人想留下来，想要在这里干一个属于自己的落脚地。</p><a id="more"></a><p>而想要留下来，那你就必须干掉你的对手，我们都是刚刚毕业，培训出来，根本就没有实际的开发经验，而外面的技术，又是不断的更新，这个时候，一定要坚持下来！</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1516948550945.jpg" alt=""></p><p>我也不瞒任何人，我在杭州一共面试45家！最后一家拿到office！</p><p>最开始面试的时候，我还做下总结，最后索性就这样了！</p><p>在面试的过程中，有跟面试官，聊得开心，各种扯，各种吹，也有跟面试官闹得不愉快！</p><p>很想知道为什么闹得不愉快吧，当面试官问你Java基础的时候，你没有回答上来，并且啊，你很尴尬的时候，他们笑了，你就知道怎么个不舒服了。</p><p>被面试官质疑我技术的时候，我有段时间心态崩了，那个时候，是在杭州有15天了，跟我一起来杭州的还有2位同学，他们在那个时候，离开了杭州这座城市！</p><p>为什么离开？因为这边的消耗，加上看不到一点希望的情况下，他们理性的选择了离开，而我并不甘心！</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1516948619045.jpg" alt=""></p><p>为什么？为什么我来这里就找不到工作？为什么我的同学好多都找到了，而我却没有？然后你要面对的就是，你的朋友，你的家人，包括你的老师，他们都会问你，工作找的怎么样？</p><p>我也想过跟我同学一样，选择离开。但是我不甘心啊，不甘心就这么放弃！每个人都不会觉得自己比别人差到到哪里去，可能比别人更好！</p><p>你仔细想想，为什么去黑马，在哪里6个月，从早上的8点到晚上的10点甚至更能晚，我付出这么多，当我要实现，我的奋斗目标的时候，而你却给我来一个大锤子。那种感觉就像是，你看到一个大蛋糕，很多人都在分，而你好不容易挤进去，一看那块蛋糕，没了。。。</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/IMG_0185.JPG" alt=""></p><p>就这样，同学走了，并且只有自己一个人留在这里，开始我自己的人生路。</p><p>接下来的时间里，我比之前更疯狂，每天的面试都安排，并且能安排4个一天面试完的，我绝不安排3个。</p><p>在接下的面试中，我发现自己根本不需要在做任何的面试准备，跟面试官沟通都是一个小时左右。</p><p>哪个时候是准备还留一个星期再回去，可是到了下个星期，又不想回去了，总感觉，我离我的目标就差那么一点点，就又坚持了下来。</p><p>很幸运的是，拿到了我人生中的第一份office，并且顺利进入公司！</p><p>请一定要记住,当你要放弃的时候,想想当初为什么来到这里!而我也是因为这样,才留在了杭州,这座美女如云的城市!</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">面试技巧： </div><div class="line">- 在自我介绍的时候，面试官想知道就是你项目的经验，和掌握的技术。</div><div class="line">- 对于简历上写的技术，自己一定要掌握，并且了解Java基础的算法和底层。</div><div class="line">- 对于 SSM 和SSH 都必须了解它们的区别，和为什么用它们！</div><div class="line">- 在面试官问你还有什么想问我们公司的时候，你一定要问他们公司用什么技术，并且工作业务是什么。你问了，他就觉得，你对他们公司还是有想法的，并且最求技术！一般的面试官都会介绍他们的公司项目和业务！</div></pre></td></tr></table></figure><p>再给大家分享一些干货！在我的博客里，有些面试的经历，和面试问题的总结！<br>百度搜索：Stone的博客  或者直接访问 www.1314sl.com</p><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;&lt;img src=&quot;http://oypem0qjb.bkt.clouddn.com/Stone/1516948182165.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;杭州，这座城市，有多太的人想留下来，想要在这里干一个属于自己的落脚地。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>杭州面试总结-Stone_6家</title>
+    <link href="http://www.1314sl.com/%E6%9D%AD%E5%B7%9E%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93-Stone-6%E5%AE%B6/"/>
+    <id>http://www.1314sl.com/杭州面试问题总结-Stone-6家/</id>
+    <published>2017-12-29T05:09:21.000Z</published>
+    <updated>2018-01-11T11:17:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p>到目前为止,我已经面试了6家左右</p><p>说句实在的,都不怎么样,虽然拿到一个office,但是不是很喜欢,我也不清楚是为啥,所以,来总一下问题</p><p>昨天,上午一家是 杭州华卓科技有限公司,进公司的第一感觉,前台的小姐姐,很标致啊,然后就是跟所有的面试一样,填一张表,然后就是等,面试官来面试.<br>等得我实在是无聊啊,看到桌上有一个魔方,拿起来玩了.</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1514522893435.jpg" alt="enter description here"></p><p>哈哈哈,好了,总结一下,这家公司的情况:<br>    他们主要负责的是医院那一块,就是他们要走互联网方向,什么远程看病啊,什么,什么的. 然后他们公司的开发框架 都是比较新进的框架,Spring boot,Spring Cloud 等等,还有一些我都没听过<br>    然后面试官问我一些原理和底层问题,可惜啊,我对这一块并不是很了解,如果你让我写一段代码,可能还有一些希望.<br>    然后我就大致说了一下 Spring MVC 的原理<br>    大致就是:<br>        用户请求–&gt;前端控制器–&gt;handlerAdapter–&gt;返回视图–&gt;渲染视图–&gt;把视图推送给用户<br>    但是实际的答案是这样:</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1514523427943.jpg" alt="enter description here"></p><p>反正大致问的 比较细,也比较多.面试官还是很不错的,你不会的,或者说你答不上来的,他都会跟你说一遍那些原理.而且听他的语气来判断,这个人懂很多,而是技术宅那种吧,哈哈哈!</p><p>下午:<br>    远昊科技有限公司</p><p>一进去我就懵逼了,我就说我来面试java开发工程师的,她们人事就来了 一句  “你是孙磊吧”,行吧,我当时都是懵逼的,对,没错,就我一个在那里面试,对就是我一个人…<br>    一样的公司使用的框架也是SpringBoot,和Spring Cloud.<br>    行吧,我应该是没戏了.</p><p>也没什么好说的,等下晚上再更新面试的技术总结,现在准备去面试了哈哈哈!</p><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;到目前为止,我已经面试了6家左右&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>杭州面试问题总结-Stone</title>
+    <link href="http://www.1314sl.com/%E6%9D%AD%E5%B7%9E%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93-Stone/"/>
+    <id>http://www.1314sl.com/杭州面试问题总结-Stone/</id>
+    <published>2017-12-29T04:37:57.000Z</published>
+    <updated>2018-01-11T11:17:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p>此刻的我,享受着,咖啡+音乐 的生活,而在这么好的一个时间,我来了,我来给大家分享一下杭州的面试:</p><p>前天的一个总结:</p><p>到目前为止总共是面试了2家</p><p>情况是这样的<br>第一家,是他们HR拿一个面试卷子 (里面的mybatis#和$的区别 不知道,就没有写)本类是想拍照的,可是我就坐在了HR旁边….</p><p>面试官问我的我的问题</p><p> 电商秒杀活动,如何实现,(一个用户,多端登陆,手机端,客户端,web端同时登陆)为了不让同一个用户抢购到同一个商品多次,我回答不上来,然后我就说 我在上个项目里是 用消息队列,进行实现,然后用Redis来缓解服务器压力.</p><p> 然后又是那个问题  mybatis 的# 和$的区别 我说这个mybatis接触的不多,就上一个项目使用过.</p><p> 然后又问我 hibernate 查询数据库的时候 ,如果有多个条件,就是in(参数….),怎么实现,我说得是,用数组,或者集合, 接着问,那它们怎么转换成参数?我回答:他们是自动转的.</p><p> 然后问我上家公司的 薪资  我说12k  然后就是等通知..</p><p>   下午的这一家,技术总监没来,我进去的时候,他们让我在会议室等,然后我就装模作样的看了他们会议室上的一个宣告栏,是个什么 “帮你还”的APP软件,是关于信用卡还不上的那种人群使用.<br>然后,他们HR面试我,问了我一些 上家公司的情况,和主要负责的业务</p><p> 然后我问他,贵公司的主要业务和开发框架<br> 他回答,业务这一块,我看你刚才也在看宣告栏,大概的业务就是,关于金额方面的数字问题<br> 我回答: 我接触的金额,就是微信支付啊,支付宝啊,还有一些其他的第三方支付平台.<br> 他就开始介绍他们公司和入职的薪资(6-8k 试用期,8-12k 转正薪资).<br> 然后就没然后了,他就约我明天晚上6点去他们那边参加技术人员的面试,通过了就可以了.<br> (他们现在是 做这个软件的后期维护,紧急事件处理,新成立的一个开发部,缺人!!!)</p><p>然后是对于技术的一些总结,我稍后整理出来!<br><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;此刻的我,享受着,咖啡+音乐 的生活,而在这么好
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>拦截器,过滤器,监听器的区别</title>
+    <link href="http://www.1314sl.com/%E6%8B%A6%E6%88%AA%E5%99%A8-%E8%BF%87%E6%BB%A4%E5%99%A8-%E7%9B%91%E5%90%AC%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://www.1314sl.com/拦截器-过滤器-监听器的区别/</id>
+    <published>2017-12-01T16:29:58.000Z</published>
+    <updated>2017-12-01T17:08:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><h3 id="过滤器-Filter"><a href="#过滤器-Filter" class="headerlink" title="过滤器(Filter)"></a>过滤器(Filter)</h3><p>(它是Servlet技术中最实用的技术)</p><ul><li><p>一般是通过Filter来对请求(Request)对象和响应(Response)对象,进行拦截</p></li><li><p>在HttpServletRequest 到达 Servlet 之前，拦截客户的 HttpServletRequest 。 根据需要检查 HttpServletRequest ，也可以修改HttpServletRequest 头和数据。</p></li><li><p>在HttpServletResponse 到达客户端之前，拦截HttpServletResponse 。 根据需要检查 HttpServletResponse ，也可以修改HttpServletResponse头和数据</p><h4 id="实现过滤"><a href="#实现过滤" class="headerlink" title="实现过滤"></a>实现过滤</h4></li><li><p>创建一个类,实现Filter接口,并重写doFilter方法</p></li><li><p>WEB服务器每次在调用web资源的service方法之前，都会先调用一下filter的doFilter方法</p></li><li><p>在 web.xml 文件中使用<filter>和<filter-mapping>进行配置</filter-mapping></filter></p><h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4></li><li><p>Filter的创建和销毁由WEB服务器负责</p></li><li><p>web 应用程序启动时，web 服务器将创建Filter 的实例对象，并调用其init方法，读取web.xml配置，完成对象的初始化功能</p></li><li><p><code>* filter对象只会创建一次，init方法也只会执行一次</code></p></li><li><p>当用户访问与过滤器设置的URL的时候,Servlet会先走doFIle()方法</p></li><li>Filter对象,创建以后是跟随web服务器停止而销毁.<h4 id="处理乱码"><a href="#处理乱码" class="headerlink" title="处理乱码"></a>处理乱码</h4></li><li><p>在项目开发中,使用Spring框架的时候,前台的JSP页面和JAVA代码使用不同的字符集编码,从而导致 乱码.</p></li><li><p>而这个时候最好使用过滤器,在每次客户请求,在dofilter()方法中,处理乱码,那就不会出现乱码了,也不用每次获取值得时候,来转码了</p></li></ul><h3 id="Listener-监听器-3种监听"><a href="#Listener-监听器-3种监听" class="headerlink" title="Listener 监听器(3种监听)"></a>Listener 监听器(3种监听)</h3><h4 id="ServletContext监听"><a href="#ServletContext监听" class="headerlink" title="ServletContext监听"></a>ServletContext监听</h4><p><code>ServletContextListener</code> 用于对Servlet整个上下文进行监听(创建和销毁)<br><code>ServletContextAttributeListener</code> 对Servlet上下文属性的监听（增删改属性）。</p><h4 id="Session监听"><a href="#Session监听" class="headerlink" title="Session监听"></a>Session监听</h4><p><code>HttpSessionListener接口</code>：对Session的整体状态的监听。<br><code>HttpSessionAttributeListener接口</code>：对session的属性监听。</p><ul><li><h4 id="session超时，web-xml配置："><a href="#session超时，web-xml配置：" class="headerlink" title="session超时，web.xml配置："></a>session超时，web.xml配置：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;session-config&gt;</div><div class="line"></div><div class="line">    &lt;session-timeout&gt;120&lt;/session-timeout&gt;&lt;!--session120分钟后超时销毁--&gt;</div><div class="line"></div><div class="line">&lt;/session-config&gt;</div></pre></td></tr></table></figure></li></ul><h4 id="Request监听"><a href="#Request监听" class="headerlink" title="Request监听"></a>Request监听</h4><p><code>ServletRequestListener</code>：用于对Request请求进行监听（创建、销毁）。<br><code>ServletRequestAttributeListener</code>：对Request属性的监听（增删改属性）。</p><ul><li><h4 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h4><ul><li>既是对整个Servlet中,所有对象的创建和销毁监听,对对象的增删改,属性进行监听,如果有什么需求,是在某个对象创建的时候,要做的事情,那就在在对象创建的时候,实施监听,并且监听创建的方法里,做要做的事情</li><li>.同理,要是要对某个对象进行添加操作,而又想在控制台看见,那么一样的,在对象添加的时候,添加监听器,然后再添加前,只需要加一条输出语句即可<h3 id="拦截器-Interceptor"><a href="#拦截器-Interceptor" class="headerlink" title="拦截器(Interceptor)"></a>拦截器(Interceptor)</h3></li><li><p>与上面2个器不同的是,拦截器不属于Servlet,而是struts框架的</p></li><li><p>拦截器是基于Java反射机制实现的,这点跟JDK的动态代理有点像</p></li><li>java里的拦截器是动态拦截Action调用的对象，它提供了一种机制可以使开发者在一个Action执行的前后执行一段代码，也可以在一个Action</li><li>在AOP中，拦截器用于在某个方法或者字段被访问之前，进行拦截,然后再之前或者之后加入某些操作 (AOP介绍,请访问 www.1314sl.com 的 Spring两大特性)</li><li>当一个请求到 ServletDispatcher的时候,Struts2会查找配置文件，并根据配置实例化相对的拦截器对象,对相关的操作进行拦截,然后再执行具体方法前,添加你自己的处理操作,然后进入请求的具体方法<br>   有点类似面向切片的技术(即AOP切面 是真的有点像)</li></ul></li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><pre><code>过滤器    在客户请求到服务器的时候,请求对象传入的request,Response,前,过滤掉一些信息,或者设置一些参数,在传入Servlet或者struts的Action处理.监听器    监听器随web服务的启动而启动,WEB服务的停止而停止,Servlet监听器用于监听一些重要事件的发生，监听器对象可以在事情发生前、发生后可以做一些必要的处理。(比如某个对象的创建和销毁)拦截器    拦截器是动态拦截Action调用的对象,并且在执行对象方法前,可以做一些操作,也可以添加一些功能.而不影响核心功能</code></pre><p>思维导图如下:</p><h5 id="作者博客-1"><a href="#作者博客-1" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/%E8%BF%87%E6%BB%A4%E5%99%A8,%E6%8B%A6%E6%88%AA%E5%99%A8,%E7%9B%91%E5%90%AC%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" alt="@Stone" title="过滤器,拦截器,监听器的区别"></p><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code>  <a href="http://www.1314sl.com">@作者博客</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;h3 id=&quot;过滤器-Filter&quot;&gt;&lt;a href
+      
+    
+    </summary>
+    
+    
+      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
+    
+      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSH三大框架的工作原理及流程</title>
+    <link href="http://www.1314sl.com/SSH%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%B5%81%E7%A8%8B/"/>
+    <id>http://www.1314sl.com/SSH三大框架的工作原理及流程/</id>
+    <published>2017-12-01T16:29:00.000Z</published>
+    <updated>2017-12-01T17:15:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="SSH三大框架的工作原理及流程"><a href="#SSH三大框架的工作原理及流程" class="headerlink" title="SSH三大框架的工作原理及流程"></a>SSH三大框架的工作原理及流程</h1><pre><code>Hibernate工作原理及为什么要用?    原理        通过Configuration().configure();读取并解析hibernate.cfg.xml配置文件        由hibernate.cfg.xml中的&lt;mapping resource=&quot;com/xx/User.hbm.xml&quot;/&gt;读取并解析映射信息        通过config.buildSessionFactory();//创建SessionFactory        .sessionFactory.openSession();//打开Sesssion        .session.beginTransaction();//创建事务Transation        persistent operate持久化操作        session.getTransaction().commit();//提交事务        .关闭Session        关闭SesstionFactory    为什么要用?        对JDBC访问数据库的代码做了封装，大大简化了数据访问层繁琐的重复性代码。        Hibernate是一个基于JDBC的主流持久化框架，是一个优秀的ORM实现。他很大程度的简化DAO层的编码工作         hibernate使用Java反射机制，而不是字节码增强程序来实现透明性。        hibernate的性能非常好，因为它是个轻量级框架。映射的灵活性很出色。它支持各种关系数据库，从一对一到多对多的各种复杂关系。    Hibernate的查询方式        Sql、Criteria,object comptosition</code></pre><p>Hql：<br>1、 属性查询<br>2、 参数查询、命名参数查询<br>3、 关联查询<br>4、 分页查询<br>5、 统计函数<br>    Struts工作机制？为什么要使用Struts<br>        Struts的工作流程:<br>            在web应用</p><ul><li>启动时就会加载初始化ActionServlet,ActionServlet从<br>struts-config.xml文件中读取配置信息,把它们存放到各种配置对象<br>当ActionServlet接收到一个客户请求时,将执行如下流程.</li></ul><h4 id="检索和用户请求匹配的ActionMapping实例-如果不存在-就返回请求路径无效信息-如果ActionForm实例不存在-就创建一个ActionForm对象-把客户提交的表单数据保存到ActionForm对象中"><a href="#检索和用户请求匹配的ActionMapping实例-如果不存在-就返回请求路径无效信息-如果ActionForm实例不存在-就创建一个ActionForm对象-把客户提交的表单数据保存到ActionForm对象中" class="headerlink" title="检索和用户请求匹配的ActionMapping实例,如果不存在,就返回请求路径无效信息;如果ActionForm实例不存在,就创建一个ActionForm对象,把客户提交的表单数据保存到ActionForm对象中;"></a>检索和用户请求匹配的ActionMapping实例,如果不存在,就返回请求路径无效信息;如果ActionForm实例不存在,就创建一个ActionForm对象,把客户提交的表单数据保存到ActionForm对象中;</h4><ul><li>根据配置信息决定是否需要表单验证.如果需要验证,就调用ActionForm的validate()方法; </li><li>如果ActionForm的validate()方法返回null或返回一个不包含ActionMessage的ActuibErrors对象, 就表示表单验证成功; </li><li>ActionServlet根据ActionMapping所包含的映射信息决定将请求转发给哪个Action,如果相应的 Action实例不存在,就先创建这个实例,然后调用Action的execute()方法; </li><li>Action的execute()方法返回一个ActionForward对象,ActionServlet在把客户请求转发给 ActionForward对象指向的JSP组件;<br>-ActionForward对象指向JSP组件生成动态网页,返回给客户;<h4 id="为什么要用："><a href="#为什么要用：" class="headerlink" title="为什么要用："></a>为什么要用：</h4></li><li>JSP、Servlet、JavaBean技术的出现给我们构建强大的企业应用系统提供了可能。但用这些技术构建的系统非常的繁乱，所以在此之上，我们需要一个规则、一个把这些技术组织起来的规则，这就是框架，Struts便应运而生。</li><li>基于Struts开发的应用由3类组件构成：控制器组件、模型组件、视图组件</li></ul><p>Sping 简单分析<br>        Spring Web MVC 处理Http请求的大致过程：<br>        一旦Http请求到来，DispatcherSevlet将负责将请求分发。<br>        DispatcherServlet可以认为是Spring提供的前端控制器，<br>        所有的请求都有经过它来统一分发。<br>        在DispatcherServlet将请求分发给Spring Controller之前，<br>        需要借助于Spring提供的HandlerMapping定位到具体的Controller。<br>        HandlerMapping是这样一种对象，它能够完成客户请求到Controller之间的映射。<br>        在Struts中，这种映射是通过struts-config.xml文件完成的。<br>        其中，Spring为Controller接口提供了若干实现，<br>        例如Spring默认使用的BeanNameUrlHandlerMapping。<br>        还有，SimpleUrlHandlerMapping，CommonsPathMapHandlerMapping。<br>        Spring Controller将处理来自DispatcherServlet的请求。<br>        Spring的Controller类似于struts的Action，<br>        能够接受HttpServletRequest和HttpServletResponse。<br>        Spring为Controller接口提供了若干实现类，<br>        位于org.springframework.web.servlet.mvc包中。<br>        由于Controller需要为并发用户处理上述请求，因此实现Controller接口时，</p><p>必须保证线程安全并且可重用。Controller将处理客户请求，<br>        这和Struts Action 扮演的角色是一致的。<br>        一旦Controller处理完客户请求，则返回ModelAndView对象<br>        给DispatcherServlet前端控制器。<br>        ModelAndView中包含了模型（Model）和视图（View）。<br>        从宏观角度考虑，DispatcherServlet是整个Web应用的控制器；<br>        从微观角度考虑，Controller是单个Http请求处理过程中的控制器，<br>        而ModelAndView是Http请求过程中返回的模型和视图。<br>        前端控制器返回的视图可以是视图的逻辑名，或者实现了View接口的对象。<br>        View对象能够渲染客户响应结果。其中，ModelAndView中的模型<br>        能够供渲染View时使用。借助于Map对象能够存储模型。<br>        如果ModelAndView返回的视图只是逻辑名，则需要借助Spring提供的<br>        视图解析器（ViewResoler）在Web应用中查找View对象，<br>        从而将响应结果渲染给客户。<br>        DispatcherServlet将View对象渲染出的结果返回个客户。</p><p>思维导图如下:</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/SSH%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E6%B5%81%E7%A8%8B.jpg" alt="enter description here" title="SSH三大框架的工作原理及流程"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;SSH三大框架的工作原理及流程&quot;&gt;&lt;a href=&quot;#SSH三大框架的工作原理及流程&quot; class=&quot;headerlink&quot; title=&quot;SSH三大框架的工作原理及流程&quot;&gt;&lt;/a&gt;SSH三大框架的工作原理及流程&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;Hibernate工
+      
+    
+    </summary>
+    
+    
+      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
+    
+      <category term="Spring" scheme="http://www.1314sl.com/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BOS技术整合-03</title>
+    <link href="http://www.1314sl.com/BOS%E6%8A%80%E6%9C%AF%E6%95%B4%E5%90%88-03/"/>
+    <id>http://www.1314sl.com/BOS技术整合-03/</id>
+    <published>2017-12-01T15:20:06.000Z</published>
+    <updated>2017-12-01T17:40:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><ol><li>SpringDataJpa原理分析和基本API</li></ol><p>原理分析<br> Spring data 出现目的 为了简化、统一 持久层 各种实现技术 API<br>所以 spring data 提供一套标准 API 和 不同持久层整合技术实现<br>API<br> jar 包<br> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149463347.jpg" alt="enter description here" title=" "></p><p>自己开发 Repository 只需要继承 JpaRepository 接口, 就可以享有父接口的功能<br>CrudRepository<br>save、 delete、 deteleAll、 findAll、 findOne、 count<br>PagingAndSortingRepository<br>findAll(Sort) 基于排序的查询、 findAll(Pageable) 基于分页的查询</p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149451163.jpg" alt="enter description here" title=" "></p><p>springDataJpa查询Query的使用<br>   第一种 根据方法命名规则自动生成<br> 1)基于一列查询等值查询 findBy 列名 例如： findByName(String name);</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149436266.jpg" alt="enter description here" title=" "></p><p>2)基于一列模糊查询 findBy 列名 Like 例如： findByNameLike(String name)<br>3)基于两列等值查询 findBy 列名 And 列名 例如：<br>     findByUsernameAndPassword(String username, String password )<br>第二种 不按命名规则写的查询方法，可以配置@Query 绑定 JPAL 语句或者 SQL 语句</p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149412768.jpg" alt="enter description here" title=" "></p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149408554.jpg" alt="enter description here" title=" "></p><p>第三种 不按命名规则写的查询方法 配置@Query 没写语句，实体类 @NamedQuery 定义</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149401281.jpg" alt="enter description here" title=" "></p><p>SpringDataJpa修改操作Query使用</p><p>使用@Query 注解完成 ， 搭配使用@Modifying 标记修改、删除操作<br>将记录 1 的 最小长度改为 15</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149395422.jpg" alt="enter description here" title=" "></p><p>注意:方法参数位置顺序,如果在sql语句中参数没有标明位置,那么需要方法参数对调.<br>注意： 使用单体测试，测试 DAO ，要添加事务，设置事务不回滚 </p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149378481.jpg" alt="enter description here" title=" "></p><ol><li>datagrid分页</li></ol><p>分页的分析:</p><p>请求数据： page 页码、 rows 每页记录数<br>响应数据： total 总记录数、 rows 当前页数据记录<br>分页列表查询实现</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149368194.jpg" alt="enter description here" title=" "></p><p>添加 pageQuery 方法<br>页面会自动发送两个请求参数 page 页码、 rows 每页记录数</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149360330.jpg" alt="enter description here" title=" "></p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149356132.jpg" alt="enter description here" title=" "></p><p>Spring data jpa 提供 分页查询方法 ，接受 Pageable 参数</p><p>提供 PageRequest 对象实现 Pageable 接口</p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149347008.jpg" alt="enter description here" title=" "></p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149343297.jpg" alt="enter description here" title=" "></p><p>编码流程<br>1.修改 standard.html 数据表格 url 参数<br>2.在 StandardAction 添加 pageQuery 方法<br>  1)pom.xml 导入 json 插件<br>  2)Action中使用json插件需要继承json-default<br>  3)设置结果集的type=”json”<br>  4)将结果集压人值栈顶部<br>3.接口StandardService中的方法<br>Page<standard> findPageData(Pageable pageable);<br>4.实现类StandardServiceImpl中的方法<br>    public Page<standard> findPageData(Pageable pageable) {<br>        return standardRepository.findAll(pageable);<br>    }</standard></standard></p><ol><li>收派标准修改功能实现</li></ol><p>注意: 修改只能对一行进行修改!<br> 点击 修改按钮,获取 gatagrid 选中的一行数据</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149331495.jpg" alt="enter description here" title=" "></p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149320351.jpg" alt="enter description here" title=" "></p><p>将选中数据 回显 form 表单<br>使用 jquery easyui 提供 form 对象</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149314202.jpg" alt="enter description here" title=" "></p><p>在用户点击保存的时候,为这个按钮添加点击事件(click)操作<br>判断 所有表单对象都通过校验<br>通过,就提交<br>不通过,就弹窗,警告!</p><ol><li>数据表格datagrid简单使用</li></ol><p>datagrid可以使用JS控制生成,也可以在页面元素table标签上定义,那么咱们先看在页面使用table元素<br>需要注意的三个</p><p>在table标签class=”easyui-datagrid”</p><p>在table标签 data-options=”url:’datagrid_data.json’,fitColumns:true,singleSelect:true</p><p>在table标签内th data-options=”field:’code’,width:100” 其中filed指的是json文件中对应的字段名称</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149283927.jpg" alt="enter description here" title=" "></p><p>JS控制datagrid<br>在页面显示表格的位置 提供<table>标签，指定 id 元素<br><!-- 数据表格 --></table></p><table id="grid"></table><p>在 JS 代码 $(“#grid”).datagrid({…}); 完成对表格设置</p><p>远程数据加载(url:”product.json”)</p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149270603.jpg" alt="enter description here" title=" "></p><p>分页(pagination:true):数据只有做成动态的数据分页才有实际效果</p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149255579.jpg" alt="enter description here" title=" "></p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149246737.jpg" alt="enter description here" title=" "></p><ol><li>快递员的CRUD</li></ol><p>添加</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149233195.jpg" alt="enter description here" title=" "> </p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149227831.jpg" alt="enter description here" title=" "></p><p><code>&lt;input type=&quot;text&quot; name=&quot;standard.id&quot;  class=&quot;easyui-combobox&quot;     data-options=&quot;required:true,valueField:&#39;id&#39;,textField:&#39;name&#39;,    url:&#39;../../standard_findAll.action&#39;&quot;/&gt; //url 请求地址</code> </p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149216741.jpg" alt="enter description here" title=" "></p><p>查询</p><p>Action 层代码</p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149171002.jpg" alt="enter description here" title=" "></p><p>Service 层代码</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149153957.jpg" alt="enter description here" title=" "></p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149141799.jpg" alt="enter description here" title=" "></p><p>还原快递员(同理跟作废相反即可)</p><p>作废快递员</p><p>Action 层</p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149131490.jpg" alt="enter description here" title=" "></p><p>Service 层</p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149108553.jpg" alt="enter description here" title=" "></p><p>Dao层</p><p> <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149082051.jpg" alt="enter description here" title=" "></p><p>前端请求</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1512149069073.jpg" alt="enter description here" title=" "></p><p>思维导图如下:</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/BOS%20%E6%8A%80%E6%9C%AF%E6%95%B4%E7%90%86-03.jpg" alt="enter description here" title="BOS 技术整理-03"></p><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code>  <a href="http://www.1314sl.com">@作者博客</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;SpringDataJpa原理分析和
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hibernate的二级缓存</title>
+    <link href="http://www.1314sl.com/Hibernate%E7%9A%84%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/"/>
+    <id>http://www.1314sl.com/Hibernate的二级缓存/</id>
+    <published>2017-11-29T04:33:48.000Z</published>
+    <updated>2017-12-01T15:20:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p>Hibernate的二级缓存</p><ul><li><p>二级缓存(外置缓存)</p><ul><li><p>可以跨多个session，即不同的session都可以访问缓存数据</p><p>   <img src="http://oypem0qjb.bkt.clouddn.com/Stone/1511931225941.jpg" alt="enter description here"></p></li></ul></li><li><p>一级缓存(内置缓存)</p><pre><code>- Hibernate的一级缓存就是指Session缓存- 在Session中定义了一系列的集合来存储数据，它们构成了Session的缓存。只要Session没有关闭，它就会一直存在。当我们通过Hibernate中的Session提供的一些API例如save()、get()、update()等进行操作时，就会将持久化对象保存到Session中，当下一次再去查询缓存中具有的对象(通过OID值来判断)，就不会去从数据库中查询了，而是直接从缓存中获取。Hibernate的一级缓存存在的目的就是为了减少对数据库的访问。 </code></pre><h4 id="三种状态"><a href="#三种状态" class="headerlink" title="三种状态"></a>三种状态</h4></li><li>瞬时状态：使用new操作符初始化的对象的状态就是瞬时的，</li><li>持久状态：在session的缓存中，</li><li>脱管状态：从session的缓存中移除出来了</li></ul><h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><ul><li>当Hibernate根据ID访问数据对象的时候，首先会从Session一级缓存中查找，如果查不到并且配置了二级缓存，那么会从二级缓存中查找，如果还查不到，就会查询数据库，把结果按照ID放入到缓存中。</li><li>Hibernate的二级缓存作为一个可插入的组件在使用的时候也是可以进行配置的，但并不是所有的对象都适合放在二级缓存中</li><li>在我实际开发中,如果 是很少被修改的数据,不是很重要的数据,都放入二级缓存中</li><li>而那些经常修改的数据,还有绝对不允许出现并发的,还有与其他应用共享的数据,都不会放入二级缓存</li></ul><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;Hibernate的二级缓存&lt;/p&gt;
+&lt;ul&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring的两大特征和事务管理</title>
+    <link href="http://www.1314sl.com/Spring%E7%9A%84%E4%B8%A4%E5%A4%A7%E7%89%B9%E5%BE%81%E5%92%8C%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/"/>
+    <id>http://www.1314sl.com/Spring的两大特征和事务管理/</id>
+    <published>2017-11-25T16:12:17.000Z</published>
+    <updated>2017-12-03T19:13:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><h3 id="Spring-两大特性"><a href="#Spring-两大特性" class="headerlink" title="Spring 两大特性"></a>Spring 两大特性</h3><h4 id="IOC控制反转"><a href="#IOC控制反转" class="headerlink" title="IOC控制反转"></a>IOC控制反转</h4><ul><li><p>IOC是什么?</p><ul><li><p>IOC是一种思想,是一个重要的面向对象编程的体现之一</p></li><li><p>传统的应用程序是由我们在类的内部主动创建依赖对象,从而导致类与类之间高耦合,测试也繁琐. 相对于IOC而言,它是把创建和查找依赖对象的控制器交给了容器,有容器进行注入组合对象,所以对象与对象之间是,低耦合的,便于测试,而且也使得整个体系架构变得更灵活</p></li><li><p>IOC的面向对象思想就好像 ,百度百科上对这点描述是“不要给我们打电话，我们会给你打电话(don‘t call us, we‘ll call you)”这是著名的好莱坞原则;<br>其实说简单一点,就是对象找依赖并注入,而不是对象自己主动去找</p></li></ul></li><li>IOC依赖注入<ul><li>在控制反转中获取资源的过程叫做依赖注入<ul><li>构造器注入:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">这种方式的注入是指带有参数的构造函数注入</div><div class="line">在XML文件中 配置注入对象</div><div class="line">```</div><div class="line">- setter注入</div><div class="line">```</div><div class="line">* 要写被注入对象的Set方法</div><div class="line">* 在XML中配置 ,要注入的具体对象(是由Spring管理的对象) </div><div class="line">* 在Spring的xml配置文件中,配置相关的Bean(也叫托管),由Spring来管理对象</div><div class="line">* 也是在配置好 Bean 以后,由Spring自动注入</div></pre></td></tr></table></figure></li></ul></li></ul></li></ul><h3 id="AOP面向切面编程"><a href="#AOP面向切面编程" class="headerlink" title="AOP面向切面编程"></a>AOP面向切面编程</h3><p>(可以说是,补全了OOP(面向对象编程)的不足的地方)</p><ul><li><p>举个例子,日志功能,它往往是遍布在所有对象层中,而它又在核心功能中毫无关系,这种被散布在各处无关的代码 被称为横切,在oop设计中,它导致了大量代码的重复;</p></li><li><p>AOP技术却相反,它利用一种 叫 “横切”的技术,解剖开封装的对象内部,并将影响了多个类的公共行为封装到一个版块,这个版块叫 “Aspect(啊死拜)”,又称切面.</p></li><li>切面,简单的说,就是那些与业务无关的,却又不可少的那一部分,封装起来,减少系统的重复代码,减低各个版块直接的耦合度,有利于维护和可操作性</li><li>AOP把软件系统分为两个部分：核心关注点和横切关注点<ul><li>业务处理的主要流程是核心关注点</li><li>与之关系不大的部分是横切关注点</li></ul></li></ul><h3 id="AOP核心概念"><a href="#AOP核心概念" class="headerlink" title="AOP核心概念"></a>AOP核心概念</h3><ul><li>横切关注点</li><li>切面（aspect）</li><li>连接点（joinpoint）</li><li>切入点（pointcut）</li><li>通知（advice）</li><li>目标对象</li><li>织入（weave）</li><li>引入（introduction）</li></ul><h3 id="声明式事务管理"><a href="#声明式事务管理" class="headerlink" title="声明式事务管理"></a>声明式事务管理</h3><ul><li><p>声明式事务管理建立在AOP之上的</p><ul><li><p>其本质是对方法前后进行拦截，然后在目标方法开始之前创建或者加入一个事务，在执行完目标方法之后根据执行情况提交或者回滚事务</p></li><li><p>声明式事务最大的优点就是不需要在代码中写管理事务的代码<br>只需在配置文件中声明和配置事物管理即可(或通过基于@Transactional注解的方式)</p></li></ul><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/1511626915760.jpg" alt=""></p></li></ul><p>思维图如下:</p><h5 id="作者博客-1"><a href="#作者博客-1" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/Spring%20%E4%B8%A4%E5%A4%A7%E7%89%B9%E6%80%A7.jpg" class="full-image"></p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/Spring%20%E4%B8%A4%E5%A4%A7%E7%89%B9%E6%80%A7.jpg" alt="enter description here" title="Spring 两大特性以及事务管理"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;h3 id=&quot;Spring-两大特性&quot;&gt;&lt;a hre
+      
+    
+    </summary>
+    
+    
+      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
+    
+      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>websevice的原理及使用方法</title>
+    <link href="http://www.1314sl.com/websevice%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    <id>http://www.1314sl.com/websevice的原理及使用方法/</id>
+    <published>2017-11-25T15:54:11.000Z</published>
+    <updated>2017-12-01T15:20:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><h3 id="WebSerivce是什么"><a href="#WebSerivce是什么" class="headerlink" title="WebSerivce是什么?"></a>WebSerivce是什么?</h3><ul><li><p>WebService是基于网络的、分布式的模块化组件。(是通过XML和Http协议为基础,进行通信的框架)</p><h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><ul><li><p>跨平台 。  任何平台都可以使用WebService</p></li><li><p>编程语言无关系。 基于XML，XML本身与平台无关</p></li><li><p>部署、升级和维护Web服务简单、方便。</p></li><li><p>实现多数据、多服务的聚合</p></li><li><p>不受防火墙的影响(XML文件 转为二进制发送,不需要多开端口)</p></li><li><p>成本低(免费)</p></li><li><p>主要分为两种服务提供方式WS 、RS,两种方式底层通信协议不同</p><pre><code>JAX-WS传输的就是xml格式的数据,基于soap协议 JAX-RS传输的是xml或者json的数据, 基于http协议</code></pre><h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><p>1.客户端调用 服务端提供的接口</p></li></ul></li></ul><p>2.服务端WebService处理 请求,调用WebService响应方法</p><p>3.服务器返回数据给客户端</p><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><h4 id="WS-服务"><a href="#WS-服务" class="headerlink" title="WS 服务"></a>WS 服务</h4><ul><li>创建WebService项目以后,导入CXF的jar 包支持</li><li>再编写服务的接口上,加上 @WebService (表示 服务提供对象)</li><li>在接口的方法上加上 @WebMethod (表示服务提供方法)</li><li>编写客户端测试,发布服务,测试访问地址是否有效</li></ul><h3 id="RS服务"><a href="#RS服务" class="headerlink" title="RS服务"></a>RS服务</h3><ul><li>在接口上加 @Path 服务访问资源路径</li><li>在方法上加 @Path 方法访问路径</li><li>在方法上加 @GET 查询 @PUT 修改 @POST 增加 @DELETE 删除</li><li>在方法上 @Consumes 指定能够处理客户端传递过来数据格式</li><li>在方法上 @Produces 指定能够生成哪种格式数据返回给客户端</li><li>同样的编写客户端代码,测试</li></ul><p>注意!!(开发常用的是RS风格的WebService)</p><p>思维导图如下 (<a href="http://www.1314sl.com">@博客</a>):</p><h5 id="作者博客-1"><a href="#作者博客-1" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/websevice%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.jpg" alt="enter description here" title="websevice的原理及使用方法"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;h3 id=&quot;WebSerivce是什么&quot;&gt;&lt;a h
+      
+    
+    </summary>
+    
+    
+      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
+    
+      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hashtable和HashSet的区别</title>
+    <link href="http://www.1314sl.com/Hashtable%E5%92%8CHashSet%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://www.1314sl.com/Hashtable和HashSet的区别/</id>
+    <published>2017-11-24T15:01:16.000Z</published>
+    <updated>2017-12-01T15:26:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>作者博客<a href="http://www.1314sl.com">@Stone原地址</a></p><h4 id="HashMap和Hashtable都实现了Map接口-但决定用哪一个之前先要弄清楚它们之间的分别"><a href="#HashMap和Hashtable都实现了Map接口-但决定用哪一个之前先要弄清楚它们之间的分别" class="headerlink" title="HashMap和Hashtable都实现了Map接口 但决定用哪一个之前先要弄清楚它们之间的分别"></a>HashMap和Hashtable都实现了Map接口 但决定用哪一个之前先要弄清楚它们之间的分别</h4><ul><li>主要的是线程安全性，同步(synchronization)，以及速度</li></ul><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul><li><p>HashMap是非synchronized的，并可以接受null   (HashMap可以接受为null的键值(key)值(value)，而Hashtable则不行)。</p></li><li><p>HashMap是非synchronized，而Hashtable是synchronized,这意味着Hashtable是线程安全的，多个线程可以共享一个Hashtable；</p></li><li><p>而HashMap如果没有正确的同步的话，多个线程是不能共享HashMap的</p></li><li><p>由于Hashtable是线程安全的也是synchronized，所以在单线程环境下它比HashMap要慢。如果你不需要同步，只需要单一线程，那么使用HashMap性能要好过Hashtable。</p><h3 id="重要的说一下他们存储空值出现的问题"><a href="#重要的说一下他们存储空值出现的问题" class="headerlink" title="重要的说一下他们存储空值出现的问题"></a>重要的说一下他们存储空值出现的问题</h3></li><li>Hashtable中，key和value都不允许出现null值。但是如果在Hashtable中有添加空值得操作,编译是会通过,但是在运行的时候就会,抛出NullPointerException异常，这是JDK的规范规定的。</li><li><p>HashMap中，null可以作为键，但是null的key键只能有一个</p><ul><li>而这个时候要注意,不能用get()方法,来判断 HashMap中是否存在某个键， 而应该用containsKey()方法来判断</li></ul></li><li><p>他们哈希值的使用不同，HashTable直接使用对象的hashCode。而HashMap重新计算hash值。</p><ul><li>hashCode是jdk根据对象的地址或者字符串或者数字算出来的int类型的数值</li><li>而HashMap重新计算了key的hash值 (!这里我也不知道对不对)<h3 id="内部实现使用的数组初始化不同"><a href="#内部实现使用的数组初始化不同" class="headerlink" title="内部实现使用的数组初始化不同"></a>内部实现使用的数组初始化不同</h3></li></ul></li><li>HashTable在不指定容量的情况下的默认容量为11，而HashMap为16</li></ul><h3 id="如何让HashMap-安全列"><a href="#如何让HashMap-安全列" class="headerlink" title="如何让HashMap 安全列?"></a>如何让HashMap 安全列?</h3><ul><li>最好,也是最常用的是,让HashMap的线程安全,那就给它加死锁(同步)</li></ul><p>思维导图如下(作者博客<a href="http://www.1314sl.com">@Stone原地址</a>):</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/hashtable%E5%92%8Chashmap%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" alt="enter description here" title="hashtable和hashmap的区别"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;作者博客&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@Stone原地址&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;HashMap和Hashtable都实现了Map接口-但决定用哪一个之前先要弄清楚它们之间的分别&quot;&gt;&lt;a href=&quot;#HashMap和Hashtab
+      
+    
+    </summary>
+    
+    
+      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
+    
+      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hibernate中get和load的区别</title>
+    <link href="http://www.1314sl.com/Hibernate%E4%B8%ADget%E5%92%8Cload%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://www.1314sl.com/Hibernate中get和load的区别/</id>
+    <published>2017-11-24T14:54:54.000Z</published>
+    <updated>2017-12-01T15:19:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>作者博客<a href="http://www.1314sl.com">@Stone原地址</a></p><ul><li><p>在Hibernate中如果要从数据库中得到一个对象 两种方法</p><ul><li>通过session.get()方法</li><li>通过session.load()方法</li></ul></li></ul><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul><li><p>load加载方式</p><ul><li><p>当使用load方法来得到一个对象时，此时hibernate会使用延迟加载的机制来加载这个对象</p></li><li><p>当使用session.load() 方法加载一个对象的时候,并不会发出SQL语句,这个对象其实就是一个代理对象,而这个代理对象只是保存实体对象的id值,只有当我们使用这个对象,得到其他属性的时候,这个时候才会发出SQL语句,从数据库中查询相对于的对象</p></li></ul></li><li><p>get加载方式</p><ul><li>相对于load的延迟加载方式，get就直接的多，当我们使用session.get()方法来得到一个对象时，不管我们使不使用这个对象，此时都会发出sql语句去从数据库中查询出来：</li></ul></li></ul><h3 id="如果对象不存在（报错区别）"><a href="#如果对象不存在（报错区别）" class="headerlink" title="如果对象不存在（报错区别）"></a>如果对象不存在（报错区别）</h3><ul><li>如果这个对象不存,通过get方式,去数据库中查询出该对象，但是这个不存在,所以id值页不存在，所以此时对象是null，所以就会报NullPointException的异常了(空指针异常)。</li><li>如果使用load方式来加载对象，当我们试图得到这个不存在的对象 的id值的时候，此时会报ObjectNotFoundException异常(对象未找到异常)</li></ul><h3 id="对象都不存在为什么报的异常不同"><a href="#对象都不存在为什么报的异常不同" class="headerlink" title="对象都不存在为什么报的异常不同?"></a>对象都不存在为什么报的异常不同?</h3><ul><li>是因为load的延迟加载机制，使用load时，此时的user对象是一个代理对象，仅仅保存了当前的这个id值，当我们试图得到该对象的username属性时，这个属性其实是不存在的，所以就会报出ObjectNotFoundException这个异常了</li></ul><p>思维导图如下：作者博客<a href="http://www.1314sl.com">@Stone原地址</a></p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/hibernate%E4%B8%ADget%E5%92%8Cload%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" alt="enter description here" title="hibernate中get和load的区别"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;作者博客&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@Stone原地址&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在Hibernate中如果要从数据库中得到一个对象 两种方法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过session.get()方法&lt;/li&gt;
+&lt;li&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
+    
+      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux常用命令以及war包部署</title>
+    <link href="http://www.1314sl.com/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8Awar%E5%8C%85%E9%83%A8%E7%BD%B2/"/>
+    <id>http://www.1314sl.com/Linux常用命令以及war包部署/</id>
+    <published>2017-11-23T08:47:00.000Z</published>
+    <updated>2017-12-01T15:19:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Linux常用命令以及项目部署</p><ul><li><p>常用命令</p><ul><li><p>ls命令</p><ul><li>ls -a 列出目录所有文件，包含以.开始的隐藏文件<br>  ls -l t*<pre><code>列出当前目录中所有以“t”开头的目录的详细内容</code></pre>  列出文件绝对路径（包含隐藏文件）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find $pwd -maxdepth 1 | xargs ls -ld</div></pre></td></tr></table></figure></li></ul></li><li><p>cd命令</p><pre><code>切换当前目录（1）进入要目录</code></pre><p>   cd /</p><p>   （2）进入”家”目录</p><p>   cd ~</p></li><li><p>pwd命令</p><pre><code>查看当前工作目录路径</code></pre><ul><li>mkdir<br>  创建文件夹</li><li>mkdir -p  如果指定目录不存在 则创建目录</li></ul></li><li><p>rm命令</p><pre><code>  删除一个目录中的一个或多个文件或目录，如果没有使用- r选项，则rm不会删除目录删除test子目录及子目录中所有档案删除,并且不用一一确认</code></pre><ul><li><p>rm -rf test</p><p> 删除以-f开头的文件</p></li><li><p>rm – -f*<br>rmdir命令<br> 从一个目录中删除一个或多个子目录项<br>!!!   注意：不能删除非空目录</p></li></ul></li><li>mv命令<pre><code>移动文件或修改文件名将文件test.log重命名为test1.txt </code></pre><ul><li>mv test.log test1.txt</li></ul></li><li>cp命令<pre><code>将源文件复制至目标文件，或将多个源文件复制至目标目录。</code></pre></li><li>locate命令<pre><code>locate通过搜寻系统内建文档数据库达到快速找到档案，数据库由updatedb程序来更新，</code></pre></li><li>find<pre><code>用于在文件树中查找文件，并作出相应的处理</code></pre></li><li>chmod命令<pre><code>用于改变linux系统文件或目录的访问权限。</code></pre></li><li>tar命令<pre><code>用来压缩和解压文件。tar</code></pre></li><li><p>grep</p><pre><code>强大的文本搜索命令  命令格式：</code></pre><ul><li><p>grep [option] pattern file|dir</p><ul><li><p>常用参数：</p></li><li><p>A n –after-context显示匹配字符后n行</p></li><li><p>B n –before-context显示匹配字符前n行</p></li><li><p>C n –context 显示匹配字符前后n行</p></li><li><p>c –count 计算符合样式的列数</p></li></ul></li></ul></li><li><p>top 显示进程</p><pre><code>显示当前系统正在执行的进程的相关信息，包括进程ID、内存占用率、CPU占用率等</code></pre></li><li>vim    <pre><code>文本编写命令</code></pre><h3 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h3>1.在linux系统中 先创建JDK和tomcat软件的存放路径<br>2.下载tomcat 和JDK<br>3.用FTP传输工具 传输(我使用的filezilla)<br>4.文件传输完成以后,再进入到/root 根目录下,/root 目录<br>5.移动或者Copy 到创建好的JDK和tomcat文件夹<br>6.解压,并安装<br>7.配置 JDK 环境变量(Vim /ect/profile)<br>8.刷新环境变量  source /etc/profile<br>9.配置tomcat环境变量</li></ul></li><li>source /etc/profile</li><li>然后 再把工程 Copy 到 tomcat的 webapps下面</li><li>然后启动tomcat (就可以了)</li></ul><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8A%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2.jpg" alt="enter description here" title="Linux常用命令以及项目部署"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Linux常用命令以及项目部署&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;常用命令&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ls命令&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ls -a 列出目录所有文件，包含以.开始的隐藏文件&lt;br&gt;  ls -l t*&lt;pre&gt;&lt;code&gt;列出当前目录中所有以“t”开头
+      
+    
+    </summary>
+    
+    
+      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
+    
+      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线程和进程的区别?以及如何实现多线程</title>
+    <link href="http://www.1314sl.com/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB-%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <id>http://www.1314sl.com/线程和进程的区别-以及如何实现多线程/</id>
+    <published>2017-11-23T05:11:09.000Z</published>
+    <updated>2017-12-01T15:19:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>简单的来说</p><ul><li><p>一个程序至少有一个进程,一进程至少有一个线程</p></li><li><p>线程的划分大小小于进程,所以使得多线程程序的并发性能高!</p></li><li><p>而且,进程在执行的过程中,有着自己独立的内存单元,而多个线程共享内存,从而极大的提高了程序的运行效率.</p></li></ul><h4 id="而他们的区别在于"><a href="#而他们的区别在于" class="headerlink" title="而他们的区别在于:"></a>而他们的区别在于:</h4><pre><code>每个独立的线程有一个程序运行入口,顺序执行序列和程序的出口.但是线程不能够独立运行,必须是依赖程序,由程序提供多个个线程的执行控制!从逻辑上看,多线程的意义在于一个程序中,有多个执行部分可以同时执行.但操作系统并没有将多个线程看做多个独立的应用,来实现进程的管理和资源分配,这是最重要的区别,也是最大的不同.</code></pre><h4 id="为什么这么说列"><a href="#为什么这么说列" class="headerlink" title="为什么这么说列?"></a>为什么这么说列?</h4><pre><code>* 进程,是一个具有独立功能的程序,关于某个数据集合上的一次远行活动,进程是系统进行资源分配和管理的独立单位.* 线程是进程的一个实体,是cpu在调度和分配的基本单位.* 线程自己基本上不拥有系统的资源,它只是有一些运行必不可少的资源但是它可以与同一进程中的其他线程共享进程所拥有的全部资源!! 这同时也是 多线程的安全问题因为多个线程同时访问同一个数据,而现在的cpu 主频,最低的也是1GHz吧, 也就是说 cpu 高达每秒几十亿的计算,你同一条数据,在 几个线程中,以几十亿的概率被几个线程同时访问,不出现安全性才怪!(如何解决此问题:把线程死锁就可以有效的避免,数据重复读取的问题了)</code></pre><h3 id="然后-创建线程有哪些方式"><a href="#然后-创建线程有哪些方式" class="headerlink" title="然后,创建线程有哪些方式?"></a>然后,创建线程有哪些方式?</h3><ul><li>刚才也说了,一个进程至少有一个线程,当我们不做任何的处理的时候,就是单进程.<br>  而实现多线程<ul><li>要么继承Thread类,创建线程子类<br>重写run 方法,这个run方法的方法体就代表了线程要完成的任务,大部分javaee工程师,都喜欢叫这个方法体为,执行体<br>(然后调用对象的,start()方法,启动该线程)</li><li>要么就实现Runnable 接口创建线程类<br>一样的,重写run方法,<br>start启动<br>但是要注意:<br>创建Runnable实例类的实例,是作为Thread的target来创建Thread对象的,这个Thread才是线程的真正对象.</li></ul></li></ul><p>思维导图如下:</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" alt="enter description here" title="线程和进程的区别"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;简单的来说&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;一个程序至少有一个进程,一进程至少有一个线程&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;线程的划分大小小于进程,所以使得多线程程序的并发性能高!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;而且,进程在执行的过程中,有着自己独立的内存单元,而多个线
+      
+    
+    </summary>
+    
+    
+      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
+    
+      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基本数据类型和引用数据类型的区别</title>
+    <link href="http://www.1314sl.com/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://www.1314sl.com/基本数据类型和引用数据类型的区别/</id>
+    <published>2017-11-22T15:58:04.000Z</published>
+    <updated>2017-12-01T15:19:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="引用数据和基本数据的区别"><a href="#引用数据和基本数据的区别" class="headerlink" title="引用数据和基本数据的区别"></a>引用数据和基本数据的区别</h3><pre><code>基本数据类型Int,long,long,float,double,short,boolean,char,byte引用数据类型:        类,接口,数组,枚举,注解类型</code></pre><p>区别</p><ul><li>从概念方法来说:<pre><code>基本数据类型:变量名指向具体的数值 ,引用数据类型:变量名指向存数据对象的内存地址,即变量名指向hash值</code></pre></li><li><p>从内存方法</p><pre><code>基本数据类型在被创建时，在栈上给其划分一块内存，将数值直接存储在栈上。</code></pre></li><li><p>引用数据类型在被创建时，首先要在栈上给其引用（句柄）分配一块内存，而对象的具体信息都存储在堆内存上，然后由栈上面的引用指向堆中对象的地址。</p><pre><code>数据类型在 栈和堆中的区别</code></pre></li><li><p>静态区： 保存自动全局变量和 static 变量（包括 static 全局和局部变量）。静态区的内容在总个程序的生命周期内都存在，由编译器在编译的时候分配。</p></li><li><p>堆区：  一般由程序员分配释放，由 malloc 系列函数或 new 操作符分配的内存，其生命周期由 free 或 delete 决定。在没有释放之前一直存在，直到程序结束，由OS释放。其特点是使用灵活，空间比较大，但容易出错</p></li><li><p>栈区： 由编译器自动分配释放，保存局部变量，栈上的内容只在函数的范围内存在，当函数运行结束，这些内容也会自动被销毁，其特点是效率高，但空间大小有限</p></li></ul><p>思维导图如下:</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" alt="" title="引用数据和基本数据的区别"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;引用数据和基本数据的区别&quot;&gt;&lt;a href=&quot;#引用数据和基本数据的区别&quot; class=&quot;headerlink&quot; title=&quot;引用数据和基本数据的区别&quot;&gt;&lt;/a&gt;引用数据和基本数据的区别&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;基本数据类型
+
+Int,long,long,
+      
+    
+    </summary>
+    
+    
+      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
+    
+      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ArrayList和LinkedList的区别</title>
+    <link href="http://www.1314sl.com/ArrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://www.1314sl.com/ArrayList和LinkedList的区别/</id>
+    <published>2017-11-22T04:33:44.000Z</published>
+    <updated>2017-12-01T15:19:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="大致的区别"><a href="#大致的区别" class="headerlink" title="大致的区别:"></a>大致的区别:</h3><ul><li><p>ArrayList是实现了基于动态数组的数据结构, LinkedList基于链表的数据结构</p></li><li><p>对于随机访问get和set,ArrayList优于LinkedList,因为ArrayList可以随机定位,而LinkedList要移动指针一步一步的移动到节点处<br>(举例:因为ArrayList的底层是动态数组,它属于一个对象,而LinkedList是链表,它是跟很多对象有关联的,所以, 你查询的话,数组就很快了,相对Linked而言,它联系着很多的对象,查询的时候,你要把他们都查出来,这个时候从性能和时间上,linkedList就不如ArrayList!)</p></li><li><p>对于新增和删除操作add和remove，LinedList比较占优势，只需要对指针进行修改即可，而ArrayList要移动数据来填补被删除的对象的空间。<br>(ArrayList在添加和删除的时候,底层是创建一个新的数组,而LinkedList却只要修改一下指针就ok了)</p></li></ul><h3 id="什么时候用哪个"><a href="#什么时候用哪个" class="headerlink" title="什么时候用哪个?"></a>什么时候用哪个?</h3><p>首先ArrayList和linkedList 是两个集合类,用于存储一系列的对象引用</p><p>1.ArrayList的内部实现是基于基础的对象数组的，因此，它使用get方法访问列表中的任意一个元素时(random access)，它的速度要比LinkedList快</p><p>2.LinkedList中的get方法是按照顺序从列表的一端开始检查，直到另外一端。对LinkedList而言，访问列表中的某个指定元素没有更快的方法了。</p><p>3.当操作是在一列数据的后面添加数据而不是在前面或中间,并且需要随机地访问其中的元素时,使用ArrayList会提供比较好的性能；</p><p>4.当你的操作是在一列数据的前面或中间添加或删除数据,并且按照顺序访问其中的元素时,就应该使用LinkedList了。</p><h3 id="所以-简单的来说"><a href="#所以-简单的来说" class="headerlink" title="所以, 简单的来说"></a>所以, 简单的来说</h3><font color="red">业务如果查询多,就用ArrayList<br>业务添加或者删除的多 就用 linkedList</font><p>思维导图如下:</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/ArrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;大致的区别&quot;&gt;&lt;a href=&quot;#大致的区别&quot; class=&quot;headerlink&quot; title=&quot;大致的区别:&quot;&gt;&lt;/a&gt;大致的区别:&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ArrayList是实现了基于动态数组的数据结构, LinkedList基于链表的数据结构&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
+    
+      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+</feed>

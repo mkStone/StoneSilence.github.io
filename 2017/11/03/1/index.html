@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Stone" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Stone的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="常用架包 java开发中主要用到的jar包描述 commons-io.jar：可以看成是java.io的扩展，用来帮助进行IO功能开发．它包含三个主要的领域:Utilityclasses-提供一些静态方法来完成公共任务．Filters-提供文件过滤器的各种实现．Streams-提供实用的Stream，reader与writer实现．commons-beanutils.jar：提供对Java反射和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java开发常用架包">
+<meta property="og:url" content="http://www.1314sl.com/2017/11/03/1/index.html">
+<meta property="og:site_name" content="Stone的博客">
+<meta property="og:description" content="常用架包 java开发中主要用到的jar包描述 commons-io.jar：可以看成是java.io的扩展，用来帮助进行IO功能开发．它包含三个主要的领域:Utilityclasses-提供一些静态方法来完成公共任务．Filters-提供文件过滤器的各种实现．Streams-提供实用的Stream，reader与writer实现．commons-beanutils.jar：提供对Java反射和">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-03T10:33:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java开发常用架包">
+<meta name="twitter:description" content="常用架包 java开发中主要用到的jar包描述 commons-io.jar：可以看成是java.io的扩展，用来帮助进行IO功能开发．它包含三个主要的领域:Utilityclasses-提供一些静态方法来完成公共任务．Filters-提供文件过滤器的各种实现．Streams-提供实用的Stream，reader与writer实现．commons-beanutils.jar：提供对Java反射和">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.1314sl.com/2017/11/03/1/"/>
+
+
+
+
+
+  <title>java开发常用架包 | Stone的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d891bbc3d22524f891376cd2a476b7cd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+	
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Stone的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            HOME
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+		<embed wmode="transparent" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.swf" quality="high" bgcolor="#ffffff" width="160" height="70" name="honehoneclock" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.1314sl.com/2017/11/03/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Stone">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oypem0qjb.bkt.clouddn.com/Stone/1509767069668.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Stone的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java开发常用架包</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-03T17:11:43+08:00">
+                2017-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/11/03/1/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/11/03/1/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <font face="黑体" color="  #63B8FF "><br> 常用架包<br><br> java开发中主要用到的jar包描述<br><em> commons-io.jar：<br>可以看成是java.io的扩展，用来帮助进行IO功能开发．它包含三个主要的领域:Utilityclasses-提供一些静态方法来完成公共任务．Filters-提供文件过滤器的各种实现．Streams-提供实用的Stream，reader与writer实现．<br>commons-beanutils.jar：<br>提供对Java反射和自省API的包装，主要提供了对于JavaBean进行各种操作。<br>commons-digester.jar:<br>它能方便地将XML文档所定义的元素转化为JAVA对象，其实它的用法有点象栈(当然内在的原理就是那个古老的东西,只是提供了更高一层的封装)。<br>commons-lang.jar:<br>它扩展了标准java.langAPI，增加了字符串操作方法、基本数值方法、对象反射、创建和串行化以及System属性。它还包含一个可继承的enum类型、对多种嵌套的Exception类型的支持、对java.util.Date的增强以及用于构建方法的实用程序，例如自动生成toString()的结果、自动实现hashCode()和equals()方法、数组操作、枚举、日期和时间的处理等等。<br>• ArrayUtils–用于对数组的操作，如添加、查找、删除、子数组、倒序、元素类型转换等；<br>• BitField–用于操作位元，提供了一些方便而安全的方法；<br>• BooleanUtils–用于操作和转换boolean或者Boolean及相应的数组；<br>• CharEncoding–包含了Java环境支持的字符编码，提供是否支持某种编码的判断；<br>• CharRange–用于设定字符范围并做相应检查；<br>• CharSet–用于设定一组字符作为范围并做相应检查；<br>• CharSetUtils–用于操作CharSet；<br>• CharUtils–用于操作char值和Character对象；<br>• ClassUtils–用于对Java类的操作，不使用反射；<br>• ObjectUtils–用于操作Java对象，提供null安全的访问和其他一些功能；<br>• RandomStringUtils–用于生成随机的字符串；<br>• SerializationUtils–用于处理对象序列化，提供比一般Java序列化更高级的处理能力；<br>• StringEscapeUtils–用于正确处理转义字符，产生正确的Java、JavaScript、HTML、XML和SQL代码；<br>• StringUtils–处理String的核心类，提供了相当多的功能；<br>• SystemUtils–在java.lang.System基础上提供更方便的访问，如用户路径、Java版本、时区、操作系统等判断；<br>• Validate–提供验证的操作，有点类似assert断言；<br>• WordUtils–用于处理单词大小写、换行等。<br>commons-codec.jar：<br>包含一些通用的编码解码算法。包括一些语音编码器，Hex,Base64,以及URLencoder。<br>commons-collections.jar：<br>提供一个类包来扩展和增加标准的JavaCollection框架。<br>• Bag接口：适用于包含一个对象的多个拷贝的集合<br>• Buffer接口：适用于具有顺序的集合类，例如FIFOs(先进先出)<br>• BidiMap(双向映射)：可以通过值查找键，也可以通过键查找值<br>• Map迭代器：提供了对映射的快速迭代<br>• 对类型检查进行了封装，确保特定类的实例可以被添加到集合中<br>• 对转换进行了封装，将集合中的对象转换成被加入时的类型<br>• 对集合进行组合，使多个集合看起来就像一个集合一样<br>• 有序映射和set，保持元素添加时的顺序，包括一个基于LRU的map<br>• 标识映射可以给予对象的==来比较对象，而不是基于equals方法<br>• 引用映射可以允许键and/or值可以有控制的进行回收<br>• 很多比较器的实现<br>• 很多迭代器的实现<br>• 从数组或者枚举到集合的适配器<br>• 用来测试或者创建典型set理论的集合属性，例如与、或、闭包<br>commons-dbutil.jar:<br>对传统操作数据库的类进行二次封装，可以把结果集转化成List<br>(1)org.apache.commons.dbutils<br>DbUtils :提供如关闭连接、装载JDBC驱动程序等常规工作的工具类<br>QueryRunner:该类简单化了SQL查询，它与ResultSetHandler组合在一起使用可以完成大部分的数据库操作，能够大大减少编码量。<br>QueryLoader:属性文件加载器，主要用于加载属性文件中的SQL到内存中。<br>(2)org.apache.commons.dbutils.handlers<br>ArrayHandler：将ResultSet中第一行的数据转化成对象数组ArrayListHandler将ResultSet中所有的数据转化成List，List中存放的是Object[]<br>BeanHandler：将ResultSet中第一行的数据转化成类对象<br>BeanListHandler：将ResultSet中所有的数据转化成List，List中存放的是类对象<br>ColumnListHandler：将ResultSet中某一列的数据存成List，List中存放的是Object对象<br>KeyedHandler：将ResultSet中存成映射，key为某一列对应为Map。Map中存放的是数据<br>MapHandler：将ResultSet中第一行的数据存成Map映射<br>MapListHandler：将ResultSet中所有的数据存成List。List中存放的是Map<br>ScalarHandler：将ResultSet中一条记录的其中某一列的数据存成Object<br><br>java开发中主要用到的jar包总结<br>axis.jar:SOAP引擎包<br>jaxrpc.jar:Axis运行所需要的组件包<br>saaj.jar:创建到端点的点到点连接的方法、创建并处理SOAP消息和附件的方法，以及接收和处理SOAP错误的方法.<br>wsdl4j-1.5.1.jar:Axis运行所需要的组件包<br>activation.jar:JAF框架的jar包<br>annotations-api.jar:使用注解所需jar<br>ant.jar:用于自动化调用程序完成项目的编译，打包，测试等<br>aopalliance-1.0.jar:支持Spring AOP<br>asm-2.2.3.jar:ASM字节码库<br>asm-commons-2.2.3.jar:ASM字节码库<br>asm-util-2.2.3.jar:Java字节码操纵和分析框架<br>aspectjrt.jar:处理事务和AOP所需的包<br>aspectjweaver.jar:处理事务和AOP所需的包<br>axiom-api-1.2.7.jar:Axis 对象模型<br>axiom-impl-1.2.7.jar:Axis 对象模型<br><br>bcprov-jdk15-140.jar:基于java1.5 的加密算法实现<br>bfmclientmodel.jar:使用WebSphere所需jar包<br>bpcclientcore.jar:使用WebSphere所需jar包<br>bpe137650.jar:提供远程访问BPE容器的实现。<br>bsh-2.0b4.jar:解决负载逻辑运算<br><br>c3p0-0.9.0.jar:开放源代码的JDBC连接池<br>cglib-nodep-2.1_3.jar:Spring中自动代理所需jar包<br>cobertura.jar:测量测试覆盖率<br>commons-beanutils-1.7.0.jar:动态的获取/设值Java Bean的属性<br>commons-chain-1.1.jar:实现责任链设计模式的Java 类库<br>commons-codec-1.3.jar:用来处理常用的编码方法的工具类包，例如DES、SHA1、MD5、Base64等等<br>commons-collections-3.1.jar:对标准java Collection的扩展<br>commons-collections.jar:对标准java Collection的扩展<br>commons-discovery-0.2.jar:用来发现、查找和实现可插入式接口，提供一些一般类实例化、单件的生命周期管理的常用方法.db2jcc.jarjava连接DB2所需jar<br>commons-digester-1.8.jar:用于处理struts-config.xml配置文件<br>commons-fileupload-1.1.1.jar:struts上传文件<br>commons-httpclient-3.1.jar:用来简化HTTP客户端与服务器端进行各种通信编程实现<br>commons-io-1.1.jar:针对java.io.InputStream和Reader进行了扩展<br>commons-lang-2.4.jar:对java.lang.</em>的扩展<br>commons-logging-1.1.1.jar:日志包<br>commons-pool-1.3.jar:实现对象池化框架<br>commons-validator-1.3.1.jar:用来把验证规则程序提取出来，以供重复使用<br><br>db2jcc_license_cu.jar:java:连接DB2所需jar<br>dom4j-1.6.1.jar:解析XML<br><br>ehcache-1.2.4.jar:hibernate的二级缓存如果用ehcache的时候需要此jar包<br>emf.jar:基于Eclipse的模型框架<br>ezmorph-1.0.6.jar:使用JSON所需的jar包<br><br>FastInfoset-1.2.2.jar:使用WebService所需的jar包<br>freemarker-2.3.8.jar:Strus2支持的一种表现层框架<br><br>geronimo-activation_1.1_spec-1.0.2.jar:Apache Geronimo所带jar包，<br>geronimo-annotation_1.0_spec-1.1.1.jar:Apache Geronimo所带jar包<br>geronimo-javamail_1.4_spec-1.3.jar:Apache Geronimo所带jar包<br>geronimo-jaxws_2.1_spec-1.0.jar:Apache Geronimo所带jar包<br>geronimo-jms_1.1_spec-1.1.1.jar:Apache Geronimo所带jar包<br>geronimo-servlet_2.5_spec-1.2.jar:Apache Geronimo所带jar包<br>geronimo-stax-api_1.0_spec-1.0.1.jar:Apache Geronimo所带jar包<br><br>hibernate3.jar:Hibernate3的核心jar包<br>htmclientmodel.jar:使用WebSphere所需jar包<br><br>jakarta-oro.jar:一套文本处理工具，提供per15.0兼容的表达式，AWK-like表达式，Glob表达式。<br>javassist.jar:Javassist 字节码解释器<br>jaxb-api-2.1.jar:使用WebService所需的jar包<br>jaxb-impl-2.1.7.jar:使用CXF所需jar包<br>jaxb-xjc-2.1.7.jar:使用CXF所需jar包<br>jaxen-1.1.1.jar:解析XML<br>jcifs-1.2.22.jar:实现单点登陆<br>jdom2-1.0.jar:解析XML<br>jdom-1.0.jar:解析XML<br>jettison-1.0.1.jar:使用CXF所需jar包<br>jetty-6.1.9.jar:Jetty Http服务器jar<br>jetty-util-6.1.9.jar:Jetty Http服务器jar<br>jra-1.0-alpha-4.jar:使用CXF所需jar包<br>js-1.6R7.jar:使用CXF所需jar包<br>json-lib-2.2.3-jdk13.jar:使用JSON所需的jar包<br>jsonplugin-0.25.jar:strus2的JSON插件<br>jsr311-api-0.8.jar:使用CXF所需jar包<br>jstl.jar:JSTL标签库<br>jta.jar:标准的 JAVA 事务处理接口<br>junit.jar:用于单元测试<br>jxl.jar:通过java操作excel表格的工具类库<br>ldap.jar:JNDI目录服务和LDAO服务器所需的jar<br>ldapbp.jar:JNDI目录服务和LDAO服务器所需的jar<br><br>log4j-1.2.15.jar:提供日志功能<br><br>mail.jar:java发送邮件jar包<br><br>neethi-2.0.4.jar:使用CXF所需jar包<br><br>odmg-3.0.jar:ODMG是一个ORM的规范，Hibernate实现了ODMG规范，这是一个核心的库<br>ognl-2.6.11.jar:struts2中OGNL语言<br>ojdbc14.jar:Oracle数据库驱动包<br>opensaml-1.1.jar:使用CXF所需jar包<br>oro-2.0.8.jar:Validator框架所需的jar包<br>oscache-2.1.jar:Java 对象的缓存工具<br><br>poi-3.1-FINAL-20080629.jar:操作exce所需jar包<br>poi-contrib-3.1-FINAL-20080629.jar:操作exce所需jar包<br>poi-ooxml-3.6-20091214.jar:提供对office的word、excel、visio及ppt的操作<br>poi-ooxml-schemas-3.6-20091214.jar:提供对office的word、excel、visio及ppt的操作<br>poi-scratchpad-3.1-FINAL-20080629.jar:提供对office的word、excel、visio及ppt的操作<br>processCommon.jarIBM WebSphere:运行所需jar<br>ProcessCommonLibrary.jarIBM WebSphere:运行所需jar<br>processIdentity.jarIBM WebSphere:运行所需jar<br>ProcessInformation.jar:进程监视软件包<br>proxool-0.9.1.jar:数据库连接池<br>proxool-cglib.jar:数据库连接池<br><br>quartz-1.6.0.jar:开源作业调度框架<br><br>saaj-api-1.3.jar:使用axis所需的jar<br>saaj-impl-1.3.2.jar:使用axis所需的jar<br>serializer-2.7.1.jar:XML序列化<br>slf4j-jdk14-1.5.6.jar:整合各种日志框架的工具<br>spring208.jar:spring核心框架<br>spring-ldap-1.2-RC1.jar:spring下LDAP<br>spring-mock.jar:spring的测试框架<br>standard.jar:使用JSTL标签库所需的jar<br>stax-api-1.0.1.jar:解析XML<br>struts2-core-2.0.14.jar:struts2核心jar<br>struts2-spring-plugin-2.0.6.jar:struts2整合Spring所需jar<br><br>taglibs-datetime.jar:Apache开源组织提供标签库，用于格式化日期。<br>taglibs-mailer.jar:用于发送邮件<br>taglibs-string.jar:Apache开源组织提供标签库，用于对String的操作。<br>task137650.jar:Portal技术在SOA系统集成应用中实现所需的jar<br><br>utility.jar:Apache开源组织提供标签库<br><br>velocity-1.5.jar:一个免费的开源模板框架<br><br>wsdl4j-1.6.2.jar:用来解析服务的WSDl文件<br>wss4j-1.5.4.jar:创建CXF所需jar<br>wstx-asl-3.2.6.jar:创建CXF所需jar<br><br>xbean-spring-2.8.jar:使用xfire所需jar<br>xerces-2.6.2.jar:XML解析器<br>xfire-all-1.2.6.jar:用于实现WebService<br>XmlSchema-1.1.jar:使用xfire所需jar<br>xwork-2.0.7.jar:WebWork核心jar<br><br></font>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/03/hello-world/" rel="next" title="欢迎--Stone">
+                <i class="fa fa-chevron-left"></i> 欢迎--Stone
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/04/kali-linux/" rel="prev" title="kali linux">
+                kali linux <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://oypem0qjb.bkt.clouddn.com/Stone/1509767069668.jpg"
+                alt="Stone" />
+            
+              <p class="site-author-name" itemprop="name">Stone</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Stone</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="#">孙磊</a> <script src="https://s22.cnzz.com/z_stat.php?id=1267521888&web_id=1267521888" language="JavaScript"></script> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="#">Stone博客.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytitXJK8';
+      var conf = '181746df5fa966a22ffca41cf5764c4c';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
