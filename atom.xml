@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.1314sl.com/"/>
-  <updated>2018-01-26T06:56:02.000Z</updated>
+  <updated>2018-02-22T13:16:35.166Z</updated>
   <id>http://www.1314sl.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mybatis多表查询关系配置</title>
+    <link href="http://www.1314sl.com/Mybatis%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%85%B3%E7%B3%BB%E9%85%8D%E7%BD%AE/"/>
+    <id>http://www.1314sl.com/Mybatis多表查询关系配置/</id>
+    <published>2018-02-22T13:47:29.000Z</published>
+    <updated>2018-02-22T13:16:35.166Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><h3 id="后面有时间再写，睡觉了，明天还上班，又是忙碌和学习的一年，如果，技术稳定，去阿里做上几年，这辈子就不用再乱跑了！"><a href="#后面有时间再写，睡觉了，明天还上班，又是忙碌和学习的一年，如果，技术稳定，去阿里做上几年，这辈子就不用再乱跑了！" class="headerlink" title="#### 后面有时间再写，睡觉了，明天还上班，又是忙碌和学习的一年，如果，技术稳定，去阿里做上几年，这辈子就不用再乱跑了！"></a>#### 后面有时间再写，睡觉了，明天还上班，又是忙碌和学习的一年，如果，技术稳定，去阿里做上几年，这辈子就不用再乱跑了！</h3><a id="more"></a><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;h3 id=&quot;后面有时间再写，睡觉了，明天还上班，又是忙碌和学习的一年，如果，技术稳定，去阿里做上几年，这辈子就不用再乱跑了！&quot;&gt;&lt;a href=&quot;#后面有时间再写，睡觉了，明天还上班，又是忙碌和学习的一年，如果，技术稳定，去阿里做上几年，这辈子就不用再乱跑了！&quot; class=&quot;headerlink&quot; title=&quot;#### 后面有时间再写，睡觉了，明天还上班，又是忙碌和学习的一年，如果，技术稳定，去阿里做上几年，这辈子就不用再乱跑了！&quot;&gt;&lt;/a&gt;#### 后面有时间再写，睡觉了，明天还上班，又是忙碌和学习的一年，如果，技术稳定，去阿里做上几年，这辈子就不用再乱跑了！&lt;/h3&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mybatis介绍和原理</title>
+    <link href="http://www.1314sl.com/Mybatis%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%8E%9F%E7%90%86/"/>
+    <id>http://www.1314sl.com/Mybatis介绍和原理/</id>
+    <published>2018-02-22T12:08:25.000Z</published>
+    <updated>2018-02-22T12:08:58.228Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p>MyBatis 介绍-入门-原理</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Mybatis%E5%8E%9F%E7%90%86.png" alt=""></p><p>如上图所介绍的原理如下:</p><a id="more"></a><p>我的理解：</p><p>​    首先加载Mbatis的配置文件，然后创建SqlSessionFactory. 再由SqlSessionFactory 得到 SqlSession对象，</p><p>而这个对象的出现，就是为了下面执行sql的对象。</p><p>mybatis底层自定义了Executor执行器接口操作数据库，Executor接口有两个实现，一个是基本执行器、一个是缓存执行器。</p><h4 id="官方解释："><a href="#官方解释：" class="headerlink" title="官方解释："></a>官方解释：</h4><p><img src="http://oypem0qjb.bkt.clouddn.com/1d14245b-ad20-4e71-b59f-5eb2779f1169.png" alt=""></p><h3 id="Mybatis-对象使用范围"><a href="#Mybatis-对象使用范围" class="headerlink" title="Mybatis 对象使用范围"></a>Mybatis 对象使用范围</h3><p><img src="http://oypem0qjb.bkt.clouddn.com/462a67c7-2596-497d-bf13-6fb78642e0d5.png" alt=""></p><ul><li><h3 id="SqlSessionFactory"><a href="#SqlSessionFactory" class="headerlink" title="SqlSessionFactory"></a>SqlSessionFactory</h3></li></ul><p><img src="http://oypem0qjb.bkt.clouddn.com/1df3ded3-8ebc-4a9e-8dcd-edf1faf95fa0.png" alt=""></p><ul><li><h3 id="SqlSession"><a href="#SqlSession" class="headerlink" title="SqlSession"></a>SqlSession</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">SqlSession是一个面向用户的接口， sqlSession中定义了数据库操作方法。</div><div class="line">每个线程都应该有它自己的SqlSession实例。SqlSession的实例不能共享使用，它也是线程不安全的。因此最佳的范围是请求或方法范围。绝对不能将SqlSession实例的引用放在一个类的静态字段或实例字段中。</div><div class="line">打开一个 SqlSession；使用完毕就要关闭它。通常把这个关闭操作放到 <span class="keyword">finally</span> 块中以确保每次都能执行关闭。如下：</div><div class="line">SqlSession session = sqlSessionFactory.openSession();</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">  <span class="comment">// do work</span></div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">  session.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure></li></ul><h2 id="Mybatis-的dao层开发，分为2种，一种是传统的-dao接口和实现类，还有一种是接口-Mapper动态代理对象"><a href="#Mybatis-的dao层开发，分为2种，一种是传统的-dao接口和实现类，还有一种是接口-Mapper动态代理对象" class="headerlink" title="Mybatis 的dao层开发，分为2种，一种是传统的 dao接口和实现类，还有一种是接口+Mapper动态代理对象"></a>Mybatis 的dao层开发，分为2种，一种是传统的 dao接口和实现类，还有一种是接口+Mapper动态代理对象</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">注意事项：</span></span></div><div class="line"><span class="tag"><span class="attr">Mapper</span>接口开发方法只需要程序员编写<span class="attr">Mapper</span>接口（相当于<span class="attr">Dao</span>接口），由<span class="attr">Mybatis</span>框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边<span class="attr">Dao</span>接口实现类方法。</span></div><div class="line"><span class="tag"><span class="attr">Mapper</span>接口开发需要遵循以下规范：</span></div><div class="line"><span class="tag"><span class="attr">1</span>、<span class="attr">Mapper.xml</span>文件中的<span class="attr">namespace</span>与<span class="attr">mapper</span>接口的类路径相同。</span></div><div class="line"><span class="tag"><span class="attr">2</span>、<span class="attr">Mapper</span>接口方法名和<span class="attr">Mapper.xml</span>中定义的每个<span class="attr">statement</span>的<span class="attr">id</span>相同 </span></div><div class="line"><span class="tag"><span class="attr">3</span>、<span class="attr">Mapper</span>接口方法的输入参数类型和<span class="attr">mapper.xml</span>中定义的每个<span class="attr">sql</span> 的<span class="attr">parameterType</span>的类型相同</span></div><div class="line"><span class="tag"><span class="attr">4</span>、<span class="attr">Mapper</span>接口方法的输出参数类型和<span class="attr">mapper.xml</span>中定义的每个<span class="attr">sql</span>的<span class="attr">resultType</span>的类型相同</span></div></pre></td></tr></table></figure><p>代码实例:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">UserMapperTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="keyword">private</span> SqlSessionFactory sqlSessionFactory;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"><span class="comment">//mybatis配置文件</span></div><div class="line">String resource = <span class="string">"sqlMapConfig.xml"</span>;</div><div class="line">InputStream inputStream = Resources.getResourceAsStream(resource);</div><div class="line"><span class="comment">//使用SqlSessionFactoryBuilder创建sessionFactory</span></div><div class="line">sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function">Public <span class="keyword">void</span> <span class="title">testFindUserById</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"><span class="comment">//获取session</span></div><div class="line">SqlSession session = sqlSessionFactory.openSession();</div><div class="line"><span class="comment">//获取mapper接口的代理对象</span></div><div class="line">UserMapper userMapper = session.getMapper(UserMapper.class);</div><div class="line"><span class="comment">//调用代理对象方法</span></div><div class="line">User user = userMapper.findUserById(<span class="number">1</span>);</div><div class="line">System.out.println(user);</div><div class="line"><span class="comment">//关闭session</span></div><div class="line">session.close();</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindUserByUsername</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">SqlSession sqlSession = sqlSessionFactory.openSession();</div><div class="line">UserMapper userMapper = sqlSession.getMapper(UserMapper.class);</div><div class="line">List&lt;User&gt; list = userMapper.findUserByUsername(<span class="string">"张"</span>);</div><div class="line">System.out.println(list.size());</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="function">Public <span class="keyword">void</span> <span class="title">testInsertUser</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"><span class="comment">//获取session</span></div><div class="line">SqlSession session = sqlSessionFactory.openSession();</div><div class="line"><span class="comment">//获取mapper接口的代理对象</span></div><div class="line">UserMapper userMapper = session.getMapper(UserMapper.class);</div><div class="line"><span class="comment">//要添加的数据</span></div><div class="line">User user = <span class="keyword">new</span> User();</div><div class="line">user.setUsername(<span class="string">"张三"</span>);</div><div class="line">user.setBirthday(<span class="keyword">new</span> Date());</div><div class="line">user.setSex(<span class="string">"1"</span>);</div><div class="line">user.setAddress(<span class="string">"北京市"</span>);</div><div class="line"><span class="comment">//通过mapper接口添加用户</span></div><div class="line">userMapper.insertUser(user);</div><div class="line"><span class="comment">//提交</span></div><div class="line">session.commit();</div><div class="line"><span class="comment">//关闭session</span></div><div class="line">session.close();</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure><h3 id="配置内容"><a href="#配置内容" class="headerlink" title="配置内容"></a>配置内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">SqlMapConfig.xml中配置的内容和顺序如下：</div><div class="line"></div><div class="line">properties（属性）</div><div class="line">settings（全局配置参数）</div><div class="line">typeAliases（类型别名）</div><div class="line">typeHandlers（类型处理器）</div><div class="line">objectFactory（对象工厂）</div><div class="line">plugins（插件）</div><div class="line">environments（环境集合属性对象）</div><div class="line">environment（环境子属性对象）</div><div class="line">transactionManager（事务管理）</div><div class="line">dataSource（数据源）</div><div class="line">mappers（映射器）</div></pre></td></tr></table></figure><h2 id="面试问题："><a href="#面试问题：" class="headerlink" title="面试问题："></a>面试问题：</h2><p>在Mybatis中 #和$ 的区别：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#占位符，防止注入</div><div class="line"></div><div class="line">$ 拼接符，不防注入</div></pre></td></tr></table></figure><p>Mybatis 和Hibernate 对比</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">虽然他们都是ORM框架，但是Mybatisqu并不是一个完整的ORM框架，因为你使用Hibernate可以完全不写sql语句,完全对java类型操作就可以了。那Mybatis是做不到的，使用Mybatis那你就必须写sql语句了.</div><div class="line">Hibernate 对sql优化就不是特别好了，因为它是关系映射,都是javaBean，不怎么好优化。</div><div class="line">如果，想灵活的开发，那就使用Mybatis，如果想提高开发效率就是会用Hibernate</div></pre></td></tr></table></figure><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;MyBatis 介绍-入门-原理&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oypem0qjb.bkt.clouddn.com/Mybatis%E5%8E%9F%E7%90%86.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如上图所介绍的原理如下:&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -448,59 +486,6 @@
 &lt;li&gt;&lt;p&gt;线程的划分大小小于进程,所以使得多线程程序的并发性能高!&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;而且,进程在执行的过程中,有着自己独立的内存单元,而多个线
-      
-    
-    </summary>
-    
-    
-      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
-    
-      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基本数据类型和引用数据类型的区别</title>
-    <link href="http://www.1314sl.com/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://www.1314sl.com/基本数据类型和引用数据类型的区别/</id>
-    <published>2017-11-22T15:58:04.000Z</published>
-    <updated>2017-12-01T15:19:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="引用数据和基本数据的区别"><a href="#引用数据和基本数据的区别" class="headerlink" title="引用数据和基本数据的区别"></a>引用数据和基本数据的区别</h3><pre><code>基本数据类型Int,long,long,float,double,short,boolean,char,byte引用数据类型:        类,接口,数组,枚举,注解类型</code></pre><p>区别</p><ul><li>从概念方法来说:<pre><code>基本数据类型:变量名指向具体的数值 ,引用数据类型:变量名指向存数据对象的内存地址,即变量名指向hash值</code></pre></li><li><p>从内存方法</p><pre><code>基本数据类型在被创建时，在栈上给其划分一块内存，将数值直接存储在栈上。</code></pre></li><li><p>引用数据类型在被创建时，首先要在栈上给其引用（句柄）分配一块内存，而对象的具体信息都存储在堆内存上，然后由栈上面的引用指向堆中对象的地址。</p><pre><code>数据类型在 栈和堆中的区别</code></pre></li><li><p>静态区： 保存自动全局变量和 static 变量（包括 static 全局和局部变量）。静态区的内容在总个程序的生命周期内都存在，由编译器在编译的时候分配。</p></li><li><p>堆区：  一般由程序员分配释放，由 malloc 系列函数或 new 操作符分配的内存，其生命周期由 free 或 delete 决定。在没有释放之前一直存在，直到程序结束，由OS释放。其特点是使用灵活，空间比较大，但容易出错</p></li><li><p>栈区： 由编译器自动分配释放，保存局部变量，栈上的内容只在函数的范围内存在，当函数运行结束，这些内容也会自动被销毁，其特点是效率高，但空间大小有限</p></li></ul><p>思维导图如下:</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" alt="" title="引用数据和基本数据的区别"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;引用数据和基本数据的区别&quot;&gt;&lt;a href=&quot;#引用数据和基本数据的区别&quot; class=&quot;headerlink&quot; title=&quot;引用数据和基本数据的区别&quot;&gt;&lt;/a&gt;引用数据和基本数据的区别&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;基本数据类型
-
-Int,long,long,
-      
-    
-    </summary>
-    
-    
-      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
-    
-      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ArrayList和LinkedList的区别</title>
-    <link href="http://www.1314sl.com/ArrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://www.1314sl.com/ArrayList和LinkedList的区别/</id>
-    <published>2017-11-22T04:33:44.000Z</published>
-    <updated>2017-12-01T15:19:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="大致的区别"><a href="#大致的区别" class="headerlink" title="大致的区别:"></a>大致的区别:</h3><ul><li><p>ArrayList是实现了基于动态数组的数据结构, LinkedList基于链表的数据结构</p></li><li><p>对于随机访问get和set,ArrayList优于LinkedList,因为ArrayList可以随机定位,而LinkedList要移动指针一步一步的移动到节点处<br>(举例:因为ArrayList的底层是动态数组,它属于一个对象,而LinkedList是链表,它是跟很多对象有关联的,所以, 你查询的话,数组就很快了,相对Linked而言,它联系着很多的对象,查询的时候,你要把他们都查出来,这个时候从性能和时间上,linkedList就不如ArrayList!)</p></li><li><p>对于新增和删除操作add和remove，LinedList比较占优势，只需要对指针进行修改即可，而ArrayList要移动数据来填补被删除的对象的空间。<br>(ArrayList在添加和删除的时候,底层是创建一个新的数组,而LinkedList却只要修改一下指针就ok了)</p></li></ul><h3 id="什么时候用哪个"><a href="#什么时候用哪个" class="headerlink" title="什么时候用哪个?"></a>什么时候用哪个?</h3><p>首先ArrayList和linkedList 是两个集合类,用于存储一系列的对象引用</p><p>1.ArrayList的内部实现是基于基础的对象数组的，因此，它使用get方法访问列表中的任意一个元素时(random access)，它的速度要比LinkedList快</p><p>2.LinkedList中的get方法是按照顺序从列表的一端开始检查，直到另外一端。对LinkedList而言，访问列表中的某个指定元素没有更快的方法了。</p><p>3.当操作是在一列数据的后面添加数据而不是在前面或中间,并且需要随机地访问其中的元素时,使用ArrayList会提供比较好的性能；</p><p>4.当你的操作是在一列数据的前面或中间添加或删除数据,并且按照顺序访问其中的元素时,就应该使用LinkedList了。</p><h3 id="所以-简单的来说"><a href="#所以-简单的来说" class="headerlink" title="所以, 简单的来说"></a>所以, 简单的来说</h3><font color="red">业务如果查询多,就用ArrayList<br>业务添加或者删除的多 就用 linkedList</font><p>思维导图如下:</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/ArrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;大致的区别&quot;&gt;&lt;a href=&quot;#大致的区别&quot; class=&quot;headerlink&quot; title=&quot;大致的区别:&quot;&gt;&lt;/a&gt;大致的区别:&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;ArrayList是实现了基于动态数组的数据结构, LinkedList基于链表的数据结构&lt;/
       
     
     </summary>
