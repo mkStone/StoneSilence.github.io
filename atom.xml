@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.1314sl.com/"/>
-  <updated>2018-02-22T13:16:35.166Z</updated>
+  <updated>2018-03-10T05:42:00.124Z</updated>
   <id>http://www.1314sl.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>个人的小小感悟</title>
+    <link href="http://www.1314sl.com/%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%B0%8F%E5%B0%8F%E6%84%9F%E6%82%9F/"/>
+    <id>http://www.1314sl.com/个人的小小感悟/</id>
+    <published>2018-03-10T04:35:40.000Z</published>
+    <updated>2018-03-10T05:42:00.124Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p>今天我准备回家了，家，是一个人最后的归属，而我同样如此。</p><p>此刻的享受着动车带来的速度视觉，一眼望去，如此之大的世界，为何我们连一个扎根落脚的地都这么难找？（有些人会说，我有啊，说实在的，你爸妈给你的，并不是你自己寻找的，都不曾属于自己的成就。）</p><p><img src="http://oypem0qjb.bkt.clouddn.com/9b98b0f1-f4a1-46a2-871d-5d9426ec2fb1.png" alt=""></p><font color="red">昨天看到一个短片，里面描述着，我们都向往的生活。</font><p>故事开始！ </p><a id="more"></a><p>你尽管闭上眼睛，直到你29岁好了.</p><p>因为热爱，所以盲目，哪有什么理智可言。</p><p>耐心，每个人都用高处的标准来衡量现在的自己,</p><p><img src="http://oypem0qjb.bkt.clouddn.com/32fb3cb7-c5ef-4f4e-b3b7-116030a3d00b.png" alt=""></p><p>因为耐心可以为你提供承受风险的保护伞.</p><p>如果你既乐观又耐心，那么你成功上道了!</p><p>短片里说，那99%有所成就的人们，都无惧牺牲,坚持不懈,付出超过常人的努力.而且考虑的是50年，不是50天.</p><p>对人生的改变，何时都不晚！</p><p><img src="http://oypem0qjb.bkt.clouddn.com/a8bc0d40-81a6-4d16-84a8-d3261ad24dc1.png" alt=""></p><p>的确如此，我相信他最后说得话没错。</p><p>我们不是不想去改变现状，而是我们总是有各种的借口来逃避。</p><p>如果你失败了，不要怪别人，先从自己身上找原因。如果有天你成功了，看看那些跟你一起走过来的人。</p><p>我听我朋友说一过一句话:<font color="red">人如果感觉路不好走，很吃力，那么恭喜你，你在走上坡路。上坡路是你学习和成长的一个过程，如果你现在就轻松了，那么你老以后就走不动了。</font></p><p>我们要在年轻的时候，多去尝试一些从未经历的事情，让自己成长，让自己有着更多的阅历，让自己稍微领先一点。</p><p>各位一定要记住，没有什么不可能，如果你真的想去做的事情，先把最坏的结果想好，如果能承受，那么就去干，不要找借口，因为所有做不好事情的人，才会有各种各样的借口来推脱责任。</p><p><code>© 著作权归作者所有</code> <code>转载请保留原链接地址</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;作者博客&quot;&gt;&lt;a href=&quot;#作者博客&quot; class=&quot;headerlink&quot; title=&quot;@作者博客&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.1314sl.com&quot;&gt;@作者博客&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;今天我准备回家了，家，是一个人最后的归属，而我同样如此。&lt;/p&gt;
+&lt;p&gt;此刻的享受着动车带来的速度视觉，一眼望去，如此之大的世界，为何我们连一个扎根落脚的地都这么难找？（有些人会说，我有啊，说实在的，你爸妈给你的，并不是你自己寻找的，都不曾属于自己的成就。）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oypem0qjb.bkt.clouddn.com/9b98b0f1-f4a1-46a2-871d-5d9426ec2fb1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;font color=&quot;red&quot;&gt;昨天看到一个短片，里面描述着，我们都向往的生活。&lt;/font&gt;
+
+&lt;p&gt;故事开始！ &lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Mybatis多表查询关系配置</title>
@@ -455,37 +478,6 @@
 &lt;li&gt;&lt;p&gt;ls命令&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ls -a 列出目录所有文件，包含以.开始的隐藏文件&lt;br&gt;  ls -l t*&lt;pre&gt;&lt;code&gt;列出当前目录中所有以“t”开头
-      
-    
-    </summary>
-    
-    
-      <category term="javaEE" scheme="http://www.1314sl.com/tags/javaEE/"/>
-    
-      <category term="面试题" scheme="http://www.1314sl.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线程和进程的区别?以及如何实现多线程</title>
-    <link href="http://www.1314sl.com/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB-%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    <id>http://www.1314sl.com/线程和进程的区别-以及如何实现多线程/</id>
-    <published>2017-11-23T05:11:09.000Z</published>
-    <updated>2017-12-01T15:19:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>简单的来说</p><ul><li><p>一个程序至少有一个进程,一进程至少有一个线程</p></li><li><p>线程的划分大小小于进程,所以使得多线程程序的并发性能高!</p></li><li><p>而且,进程在执行的过程中,有着自己独立的内存单元,而多个线程共享内存,从而极大的提高了程序的运行效率.</p></li></ul><h4 id="而他们的区别在于"><a href="#而他们的区别在于" class="headerlink" title="而他们的区别在于:"></a>而他们的区别在于:</h4><pre><code>每个独立的线程有一个程序运行入口,顺序执行序列和程序的出口.但是线程不能够独立运行,必须是依赖程序,由程序提供多个个线程的执行控制!从逻辑上看,多线程的意义在于一个程序中,有多个执行部分可以同时执行.但操作系统并没有将多个线程看做多个独立的应用,来实现进程的管理和资源分配,这是最重要的区别,也是最大的不同.</code></pre><h4 id="为什么这么说列"><a href="#为什么这么说列" class="headerlink" title="为什么这么说列?"></a>为什么这么说列?</h4><pre><code>* 进程,是一个具有独立功能的程序,关于某个数据集合上的一次远行活动,进程是系统进行资源分配和管理的独立单位.* 线程是进程的一个实体,是cpu在调度和分配的基本单位.* 线程自己基本上不拥有系统的资源,它只是有一些运行必不可少的资源但是它可以与同一进程中的其他线程共享进程所拥有的全部资源!! 这同时也是 多线程的安全问题因为多个线程同时访问同一个数据,而现在的cpu 主频,最低的也是1GHz吧, 也就是说 cpu 高达每秒几十亿的计算,你同一条数据,在 几个线程中,以几十亿的概率被几个线程同时访问,不出现安全性才怪!(如何解决此问题:把线程死锁就可以有效的避免,数据重复读取的问题了)</code></pre><h3 id="然后-创建线程有哪些方式"><a href="#然后-创建线程有哪些方式" class="headerlink" title="然后,创建线程有哪些方式?"></a>然后,创建线程有哪些方式?</h3><ul><li>刚才也说了,一个进程至少有一个线程,当我们不做任何的处理的时候,就是单进程.<br>  而实现多线程<ul><li>要么继承Thread类,创建线程子类<br>重写run 方法,这个run方法的方法体就代表了线程要完成的任务,大部分javaee工程师,都喜欢叫这个方法体为,执行体<br>(然后调用对象的,start()方法,启动该线程)</li><li>要么就实现Runnable 接口创建线程类<br>一样的,重写run方法,<br>start启动<br>但是要注意:<br>创建Runnable实例类的实例,是作为Thread的target来创建Thread对象的,这个Thread才是线程的真正对象.</li></ul></li></ul><p>思维导图如下:</p><p><img src="http://oypem0qjb.bkt.clouddn.com/Stone/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" alt="enter description here" title="线程和进程的区别"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;简单的来说&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;一个程序至少有一个进程,一进程至少有一个线程&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;线程的划分大小小于进程,所以使得多线程程序的并发性能高!&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;而且,进程在执行的过程中,有着自己独立的内存单元,而多个线
       
     
     </summary>
