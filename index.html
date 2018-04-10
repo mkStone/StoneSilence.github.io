@@ -426,22 +426,6 @@
         
           <h5 id="作者博客"><a href="#作者博客" class="headerlink" title="@作者博客"></a><a href="http://www.1314sl.com">@作者博客</a></h5><p>报错:</p>
 <p>Unregistering JMX-exposed beans on shutdown</p>
-<p>2018-04-04 23:50:16.860  INFO 1953 — [      Thread-16] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans</p>
-<p>2018-04-04 23:50:16.861  INFO 1953 — [      Thread-16] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit ‘default’</p>
-<p>2018-04-04 23:50:16.862  INFO 1953 — [      Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated…</p>
-<p>2018-04-04 23:50:16.867  INFO 1953 — [      Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.</p>
-<p>Process finished with exit code 0</p>
-<p>猜测原因:(因为试了好几次了)</p>
-<h3 id="第一"><a href="#第一" class="headerlink" title="第一:"></a>第一:</h3><p>项目中由于pom.xml 的原因</p>
-<p>没有</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="第二"><a href="#第二" class="headerlink" title="第二:"></a>第二:</h3><p>项目中可能由于Maven仓库的问题</p>
-<p>我们加入tomcat的依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>第三:(也是运行成功的)</p>
-<p>清理Maven的org 下 apache 文件夹,让Maven重新下载jar包</p>
-<p>或者运行Maven命令,清理jar包</p>
-<p><code>dependency:purge-local-repository</code></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/SpringBoot-Process-finished-with-exit-code-0/#more" rel="contents">
